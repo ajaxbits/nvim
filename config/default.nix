@@ -25,6 +25,7 @@
       writebackup = false;
       swapfile = false;
       relativenumber = true;
+      number = true;
       mouse = "a";
       smartindent = true;
       undofile = true;
