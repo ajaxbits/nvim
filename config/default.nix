@@ -1,0 +1,71 @@
+{
+  imports = [
+    ./ui.nix
+    ./keys.nix
+    ./lsp.nix
+    ./completion.nix
+    ./dap.nix
+    ./project-management.nix
+    ./tree-sitter.nix
+  ];
+
+  config = {
+    enableMan = false;
+    viAlias = true;
+    vimAlias = true;
+
+    clipboard.register = "unnamedplus";
+    colorschemes.gruvbox.enable = true;
+
+    options = {
+      ignorecase = true;
+      smartcase = true;
+      splitbelow = true;
+      splitright = true;
+      writebackup = false;
+      swapfile = false;
+      relativenumber = true;
+      mouse = "a";
+      smartindent = true;
+      undofile = true;
+    };
+
+    globals.mapleader = " ";
+    keymaps = [
+      {
+        action = "<cmd>nohl<CR><esc>";
+        key = "<esc>";
+        options.silent = true;
+        mode = ["n"];
+      }
+      {
+        action = "<nop>";
+        key = "<space>";
+        options.silent = true;
+        mode = ["n"];
+      }
+    ];
+
+    plugins = {
+      auto-save.enable = true;
+      comment-nvim.enable = true;
+      leap.enable = true;
+      gitsigns.enable = true;
+      lastplace.enable = true;
+      nvim-autopairs.enable = true;
+      todo-comments.enable = true;
+      indent-blankline.enable = true;
+      surround.enable = true;
+      which-key.enable = true;
+      wilder = {
+        enable = true;
+        modes = ["/" "?" ":"];
+        renderer = ''
+          wilder.wildmenu_renderer({
+            highlighter = wilder.basic_highlighter(),
+          })
+        '';
+      };
+    };
+  };
+}
