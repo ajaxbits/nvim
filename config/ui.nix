@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   plugins = {
     bufferline = {
       enable = true;
@@ -22,10 +22,19 @@
         "<leader>fh" = "help_tags";
       };
       keymapsSilent = true;
+      extensions.undo.enable = true;
     };
   };
 
+  extraPlugins = [pkgs.vimPlugins.lazygit-nvim];
+
   keymaps = [
+    {
+      action = "<cmd>LazyGit<cr>";
+      key = "<leader>gg";
+      mode = ["n"];
+      options.silent = true;
+    }
     {
       action = "<cmd>NvimTreeToggle<CR>";
       key = "<C-n>";
@@ -35,6 +44,12 @@
     {
       action = "<cmd>NvimTreeFindFile<CR>";
       key = "<leader>tg";
+      mode = ["n"];
+      options.silent = true;
+    }
+    {
+      action = "<cmd>Telescope undo<CR>";
+      key = "<leader>fu";
       mode = ["n"];
       options.silent = true;
     }

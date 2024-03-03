@@ -7,6 +7,7 @@
     ./dap.nix
     ./project-management.nix
     ./tree-sitter.nix
+    ./testing.nix
   ];
 
   config = {

@@ -2,7 +2,10 @@
   plugins.dap = {
     enable = true;
     extensions = {
-      dap-python.enable = true;
+      dap-python = {
+        enable = true;
+        testRunner = "pytest";
+      };
       dap-ui.enable = true;
       dap-virtual-text.enable = true;
     };
