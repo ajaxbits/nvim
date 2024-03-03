@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   extraPlugins = with pkgs.vimPlugins; [vim-vsnip];
 
   extraConfigLua = ''
@@ -13,6 +17,7 @@
       enable = true;
       snippet.expand = "vsnip";
       sources = [
+        {name = "copilot";}
         {name = "dap";}
         {name = "nvim_lsp";}
         {name = "nvim_lsp_signature_help";}
@@ -39,11 +44,13 @@
       };
     };
 
-    copilot-vim = {
+    copilot-lua = {
       enable = true;
+      panel.enabled = !config.plugins.nvim-cmp.enable;
+      suggestion.enabled = !config.plugins.nvim-cmp.enable;
       filetypes = {
-        "*" = true;
-        "markdown" = false;
+        markdown = false;
+        yaml = true;
       };
     };
   };

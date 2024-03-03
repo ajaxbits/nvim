@@ -5,9 +5,9 @@
     ./lsp.nix
     ./completion.nix
     ./dap.nix
-    ./project-management.nix
     ./tree-sitter.nix
     ./testing.nix
+    ./folding.nix
   ];
 
   config = {
@@ -50,8 +50,17 @@
 
     plugins = {
       auto-save.enable = true;
+      auto-session = {
+        enable = true;
+        autoSave.enabled = true;
+        autoRestore.enabled = true;
+        autoSession.enableLastSession = true;
+      };
+      gitlinker.enable = true;
       comment-nvim.enable = true;
       leap.enable = true;
+      spider.enable = true;
+      rainbow-delimiters.enable = true;
       gitsigns.enable = true;
       lastplace.enable = true;
       nvim-autopairs.enable = true;

@@ -36,12 +36,5 @@
 	mode = ["n"];
         options.silent = true;
       }
-      {
-        options.desc = "Toggle TODOs.";
-        action = "<cmd>TodoTrouble<cr>";
-        key = "<leader>xt";
-	mode = ["n"];
-        options.silent = true;
-      }
     ];
 }
