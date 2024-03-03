@@ -25,11 +25,23 @@
       };
       keymaps.silent = true;
     };
-    lspsaga = {
-      enable = true;
-      lightbulb.enable = false;
-    };
     fidget.enable = true;
     trouble.enable = true;
   };
+    keymaps = [
+      {
+        options.desc = "Toggle diagnostics window.";
+        action = "<cmd>TroubleToggle<cr>";
+        key = "<leader>xx";
+	mode = ["n"];
+        options.silent = true;
+      }
+      {
+        options.desc = "Toggle TODOs.";
+        action = "<cmd>TodoTrouble<cr>";
+        key = "<leader>xt";
+	mode = ["n"];
+        options.silent = true;
+      }
+    ];
 }
