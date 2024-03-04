@@ -22,6 +22,7 @@
         gi = "implementation";
         gt = "type_definition";
         "<leader>lf" = "format";
+        "<leader>ca" = "code_action";
       };
       keymaps.silent = true;
     };
