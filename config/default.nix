@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   imports = [
     ./ui.nix
     ./keys.nix
@@ -54,12 +54,6 @@
 
     plugins = {
       auto-save.enable = true;
-      auto-session = {
-        enable = true;
-        autoSave.enabled = true;
-        autoRestore.enabled = true;
-        autoSession.enableLastSession = true;
-      };
       gitlinker.enable = true;
       comment-nvim.enable = true;
       leap.enable = true;
@@ -82,5 +76,36 @@
         '';
       };
     };
+
+    extraPlugins = [
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "neovim-project";
+        src = pkgs.fetchFromGitHub {
+          owner = "coffebar";
+          repo = "neovim-project";
+          rev = "e7868b38f402be94e859d479002df1418bc1e954";
+          hash = "sha256-9bvvTBCIn1NdTfwGIBgFTgeGQw67R0xRYodlZn/zjEE=";
+        };
+      })
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "neovim-session-manager";
+        src = pkgs.fetchFromGitHub {
+          owner = "Shatur";
+          repo = "neovim-session-manager";
+          rev = "d8e1ba3bbcf3fdc6a887bcfbd94c48ae4707b457";
+          hash = "sha256-+TDWY8mprJfUp9ZFKbz83to7XW8iiovja22jHms+N1A=";
+        };
+      })
+    ];
+
+    extraConfigLua = ''
+      vim.opt.sessionoptions = { "globals" }
+      require("neovim-project").setup {
+        projects = { -- define project roots
+          "~/code/*",
+          "~/projects/*",
+        },
+      }
+    '';
   };
 }
