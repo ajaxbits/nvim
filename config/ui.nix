@@ -6,16 +6,21 @@
   config = {
     plugins = {
       barbecue.enable = true;
-      bufferline = {
-        enable = !config.plugins.barbecue.enable; # trying out barbeque
-      };
+      bufferline.enable = true;
       lualine = {
         enable = true;
         extensions = ["nvim-tree"];
         theme = "gruvbox";
         globalstatus = true;
       };
-      nvim-tree.enable = true;
+      nvim-tree = {
+        enable = true;
+        autoClose = true;
+	hijackNetrw = true;
+        hijackDirectories.enable = true;
+	hijackUnnamedBufferWhenOpening = true;
+        git.ignore = false;
+      };
 
       smart-splits.enable = true;
 
