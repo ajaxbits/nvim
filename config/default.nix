@@ -10,6 +10,7 @@
     ./folding.nix
     ./nonels.nix
     ./training.nix
+    ./spelling.nix
   ];
 
   config = {
