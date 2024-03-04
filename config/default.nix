@@ -8,6 +8,7 @@
     ./tree-sitter.nix
     ./testing.nix
     ./folding.nix
+    ./nonels.nix
   ];
 
   config = {
@@ -19,6 +20,8 @@
     colorschemes.gruvbox.enable = true;
 
     options = {
+      encoding = "utf-8";
+      expandtab = true;
       ignorecase = true;
       smartcase = true;
       splitbelow = true;
