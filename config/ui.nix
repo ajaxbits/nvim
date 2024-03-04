@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   config = {
     plugins = {
       barbecue.enable = true;
@@ -27,8 +31,6 @@
       telescope = {
         enable = true;
         keymaps = {
-          "<leader>ff" = "find_files";
-          "<leader>fg" = "live_grep";
           "<leader>fb" = "buffers";
           "<leader>fh" = "help_tags";
         };
@@ -61,7 +63,35 @@
 
     extraPlugins = [pkgs.vimPlugins.lazygit-nvim];
 
-    keymaps = [
+    keymaps = let
+      inherit (lib) concatStringsSep;
+      excludedPaths = [
+        "**/.git"
+        "**/node_modules"
+        "**/.venv"
+        "**/.terraform"
+        "**/.direnv"
+        "**/result"
+        "**/target"
+      ];
+
+      excludes = concatStringsSep "," (map (path: "--exclude,${path}") excludedPaths);
+      searchCommand = commandBin: "find_command=${commandBin},-tf,-tl,--unrestricted,${excludes}";
+    in [
+      {
+        options.desc = "Find files";
+        action = "<cmd>Telescope find_files ${searchCommand "${pkgs.fd}/bin/fd"} prompt_prefix=📂<cr>";
+        key = "<leader>ff";
+        mode = ["n"];
+        options.silent = true;
+      }
+      {
+        options.desc = "Search in files";
+        action = "<cmd>Telescope live_grep ${searchCommand "${pkgs.ripgrep}/bin/rg"} prompt_prefix=🔍<cr>";
+        key = "<leader>fg";
+        mode = ["n"];
+        options.silent = true;
+      }
       {
         action = "<cmd>LazyGit<cr>";
         key = "<leader>gg";
