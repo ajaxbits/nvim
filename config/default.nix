@@ -9,6 +9,7 @@
     ./testing.nix
     ./folding.nix
     ./nonels.nix
+    ./training.nix
   ];
 
   config = {
