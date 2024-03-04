@@ -20,10 +20,17 @@
     clipboard.register = "unnamedplus";
     colorschemes.gruvbox.enable = true;
 
-    options = {
+    options = rec {
       encoding = "utf-8";
       expandtab = true;
+      autoindent = true;
+      tabstop = 4;
+      softtabstop = tabstop;
+      shiftwidth = tabstop;
+      errorbells = false;
+      visualbell = false;
       ignorecase = true;
+      hidden = true;
       smartcase = true;
       splitbelow = true;
       splitright = true;

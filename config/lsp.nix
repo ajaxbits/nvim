@@ -28,14 +28,15 @@
     };
     fidget.enable = true;
     trouble.enable = true;
+    rust-tools.enable = true;
   };
-    keymaps = [
-      {
-        options.desc = "Toggle diagnostics window.";
-        action = "<cmd>TroubleToggle<cr>";
-        key = "<leader>xx";
-	mode = ["n"];
-        options.silent = true;
-      }
-    ];
+  keymaps = [
+    {
+      options.desc = "Toggle diagnostics window.";
+      action = "<cmd>TroubleToggle<cr>";
+      key = "<leader>xx";
+      mode = ["n"];
+      options.silent = true;
+    }
+  ];
 }
