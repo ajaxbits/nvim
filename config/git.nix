@@ -22,6 +22,20 @@
       diffPrefix = "${gitPrefix}d";
     in [
       {
+        options.desc = "Reset hunk";
+        action = "<cmd>Gitsigns reset_hunk<cr>";
+        key = "${gitPrefix}r";
+        options.silent = true;
+        mode = ["n" "v"];
+      }
+      {
+        options.desc = "Show line blame";
+        action = "<cmd>Gitsigns blame_line<cr>";
+        key = "${gitPrefix}b";
+        options.silent = true;
+        mode = ["n"];
+      }
+      {
         options.desc = "Open repo in browser.";
         action = "<cmd>lua require('gitlinker').get_repo_url({action_callback = require('gitlinker.actions').open_in_browser})<cr>";
         key = "${openPrefix}r";
