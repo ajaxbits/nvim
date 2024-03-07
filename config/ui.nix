@@ -61,8 +61,6 @@
       }
     ];
 
-    extraPlugins = [pkgs.vimPlugins.lazygit-nvim];
-
     keymaps = let
       inherit (lib) concatStringsSep;
       excludedPaths = [

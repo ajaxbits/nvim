@@ -11,6 +11,7 @@
     ./nonels.nix
     ./training.nix
     ./spelling.nix
+    ./git.nix
   ];
 
   config = {
@@ -62,12 +63,10 @@
 
     plugins = {
       auto-save.enable = true;
-      gitlinker.enable = true;
       comment-nvim.enable = true;
       leap.enable = true;
       spider.enable = true;
       rainbow-delimiters.enable = true;
-      gitsigns.enable = true;
       lastplace.enable = true;
       nvim-autopairs.enable = true;
       todo-comments.enable = true;
