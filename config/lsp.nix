@@ -21,7 +21,6 @@
         gd = "definition";
         gi = "implementation";
         gt = "type_definition";
-        "<leader>lf" = "format";
         "<leader>ca" = "code_action";
       };
       keymaps.silent = true;
@@ -31,6 +30,14 @@
     rust-tools.enable = true;
   };
   keymaps = [
+    {
+      options.desc = "Format code.";
+      action = "vim.lsp.buf.format";
+      lua = true;
+      key = "<leader>lf";
+      mode = ["n" "v"];
+      options.silent = true;
+    }
     {
       options.desc = "Toggle diagnostics window.";
       action = "<cmd>TroubleToggle<cr>";
