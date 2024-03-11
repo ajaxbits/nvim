@@ -65,16 +65,21 @@
       }
     ];
 
-    extraConfigLua = ''
-      vim.api.nvim_create_user_command("DiffviewToggle", function(e)
-        local view = require("diffview.lib").get_current_view()
+    highlightOverride = {
+      DiffviewDiffAddAsDelete.bg = "#431313";
+      DiffDelete = {
+        bg = "none";
+        fg = "#504945";
+      };
+      DiffviewDiffDelete = {
+        bg = "none";
+        fg = "#504945";
+      };
+      DiffAdd.bg = "#142a03";
+      DiffChange.bg = "#3B3307";
+      DiffText.bg = "#4D520D";
+    };
 
-        if view then
-          vim.cmd("DiffviewClose")
-        else
-          vim.cmd("DiffviewOpen " .. e.args)
-        end
-      end, { nargs = "*" })
-    '';
+    extraConfigLua = builtins.readFile ./git.lua;
   };
 }
