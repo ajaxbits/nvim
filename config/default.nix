@@ -65,7 +65,10 @@
       auto-save.enable = true;
       comment-nvim.enable = true;
       leap.enable = true;
-      spider.enable = true;
+      spider = {
+        enable = true;
+        skipInsignificantPunctiation = false;
+      };
       rainbow-delimiters.enable = true;
       lastplace.enable = true;
       nvim-autopairs.enable = true;
