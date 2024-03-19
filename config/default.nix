@@ -67,7 +67,7 @@
       leap.enable = true;
       spider = {
         enable = true;
-        skipInsignificantPunctiation = false;
+        skipInsignificantPunctuation = false;
       };
       rainbow-delimiters.enable = true;
       lastplace.enable = true;
