@@ -30,7 +30,7 @@
         nixvimModule = {
           inherit pkgs;
           module = import ./config;
-          extraSpecialArgs = {lib = pkgs.lib;};
+          extraSpecialArgs = {inherit (pkgs) lib;};
         };
       in {
         checks = {

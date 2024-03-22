@@ -13,6 +13,9 @@
         theme = "gruvbox";
         globalstatus = true;
       };
+      neoscroll = {
+        enable = true;
+      };
       nvim-tree = {
         enable = true;
         autoClose = true;
