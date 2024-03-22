@@ -13,33 +13,36 @@
   '';
 
   plugins = {
-    nvim-cmp = {
+    cmp = {
       enable = true;
-      snippet.expand = "vsnip";
-      sources = [
-        {name = "copilot";}
-        {name = "dap";}
-        {name = "nvim_lsp";}
-        {name = "nvim_lsp_signature_help";}
-        {name = "treesitter";}
-        {name = "fuzzy_path";}
-        {name = "fuzzy_buffer";}
-        {name = "emoji";}
-      ];
-      mapping = {
-        "<C-k>" = "cmp.mapping.select_prev_item()";
-        "<C-j>" = "cmp.mapping.select_next_item()";
-        "<CR>" = {
-          action = ''
-               function(fallback)
-                 if cmp.visible() and cmp.get_active_entry() then
-            cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-                 else
-            fallback()
-                 end
-               end
+      settings = {
+        snippet.expand = ''
+          function(args)
+            vim.fn["vsnip#anonymous"](args.body)
+          end
+        '';
+        sources = [
+          {name = "copilot";}
+          {name = "dap";}
+          {name = "nvim_lsp";}
+          {name = "nvim_lsp_signature_help";}
+          {name = "treesitter";}
+          {name = "fuzzy_path";}
+          {name = "fuzzy_buffer";}
+          {name = "emoji";}
+        ];
+        mapping = {
+          "<C-k>" = "cmp.mapping.select_prev_item()";
+          "<C-j>" = "cmp.mapping.select_next_item()";
+          "<CR>" = ''
+            cmp.mapping(function(fallback)
+              if cmp.visible() and cmp.get_active_entry() then
+                cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+              else
+                fallback()
+              end
+            end, { "i", "s" })
           '';
-          modes = ["i"];
         };
       };
     };
