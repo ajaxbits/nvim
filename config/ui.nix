@@ -15,6 +15,7 @@
       };
       neoscroll = {
         enable = true;
+        settings.easing_function = "quadratic";
       };
       nvim-tree = {
         enable = true;
