@@ -49,8 +49,8 @@
 
     copilot-lua = {
       enable = true;
-      panel.enabled = !config.plugins.nvim-cmp.enable;
-      suggestion.enabled = !config.plugins.nvim-cmp.enable;
+      panel.enabled = !config.plugins.cmp.enable;
+      suggestion.enabled = !config.plugins.cmp.enable;
       filetypes = {
         markdown = false;
         yaml = true;
