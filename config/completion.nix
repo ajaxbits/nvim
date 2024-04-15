@@ -56,5 +56,7 @@
         yaml = true;
       };
     };
+
+    direnv.enable = true;
   };
 }
