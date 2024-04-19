@@ -63,7 +63,7 @@
 
     plugins = {
       auto-save.enable = true;
-      comment-nvim.enable = true;
+      comment.enable = true;
       leap.enable = true;
       spider = {
         enable = true;

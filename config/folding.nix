@@ -10,7 +10,7 @@
       }
     '';
 
-    options = {
+    opts = {
       foldcolumn = "1";
       fillchars = {
         eob = " ";

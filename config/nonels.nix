@@ -1,7 +1,9 @@
 {pkgs, ...}: {
   config = {
-    options.spell = true;
-    options.spelllang = "en_us";
+    opts = {
+      spell = true;
+      spelllang = "en_us";
+    };
 
     plugins.none-ls = {
       enable = true;

@@ -5,7 +5,7 @@
     plugins = {
       gitsigns = {
         enable = true;
-        diffOpts.internal = true;
+        settings.diff_opts.internal = true;
       };
       gitlinker.enable = true;
       diffview = {
@@ -14,7 +14,7 @@
       };
     };
 
-    options.fillchars.diff = "╱";
+    opts.fillchars.diff = "╱";
 
     keymaps = let
       gitPrefix = "<leader>g";
