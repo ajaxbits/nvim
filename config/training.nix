@@ -1,4 +1,4 @@
 {
-  plugins.hardtime.enable = true;
+  plugins.hardtime.enable = false;
   plugins.hardtime.disableMouse = false;
 }
