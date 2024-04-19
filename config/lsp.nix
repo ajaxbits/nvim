@@ -26,9 +26,11 @@
       };
       keymaps.silent = true;
     };
+    rustaceanvim = {
+        enable = true;
+    };
     fidget.enable = true;
     trouble.enable = true;
-    rust-tools.enable = true;
   };
   keymaps = [
     {
