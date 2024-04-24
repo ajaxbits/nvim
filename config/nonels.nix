@@ -8,6 +8,9 @@
     plugins.none-ls = {
       enable = true;
       sources = {
+        formatting.treefmt = {
+          enable = true;
+        };
         code_actions = {
           statix.enable = true;
         };
