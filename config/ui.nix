@@ -38,7 +38,6 @@
           "<leader>fb" = "buffers";
           "<leader>fh" = "help_tags";
         };
-        keymapsSilent = true;
         extensions.undo.enable = true;
       };
     };
