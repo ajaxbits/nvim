@@ -12,6 +12,8 @@
     ./training.nix
     ./spelling.nix
     ./git.nix
+
+    ./languages/scheme
   ];
 
   config = {
@@ -71,7 +73,14 @@
       };
       rainbow-delimiters.enable = true;
       lastplace.enable = true;
-      nvim-autopairs.enable = true;
+      nvim-autopairs = {
+        enable = true;
+        extraOptions.disable_filetype = [
+          "TelescopePrompt"
+          "spectre_panel"
+          "scheme" # handled by parinfer
+        ];
+      };
       todo-comments.enable = true;
       indent-blankline.enable = true;
       surround.enable = true;
