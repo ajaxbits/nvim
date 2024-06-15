@@ -15,6 +15,7 @@
           settings.formatting.command = ["${pkgs.alejandra}/bin/alejandra"];
         };
         lua-ls.enable = true;
+        gopls.enable = true;
       };
       keymaps.lspBuf = {
         K = "hover";
