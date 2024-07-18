@@ -18,7 +18,7 @@
       {
         options.desc = "Rename all instances of word under cursor within buffer";
         key = "<leader>s";
-        action.__raw = ''[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]'';
+        action = ":%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>";
         mode = ["n" "v"];
       }
       {

@@ -80,7 +80,7 @@
     {
       options.desc = "Toggle diagnostics window.";
       action = "<cmd>Trouble diagnostics toggle<cr>";
-      key = "<leader>tt";
+      key = "<leader>xx";
       mode = ["n"];
       options.silent = true;
     }
