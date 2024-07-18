@@ -26,37 +26,10 @@
           {name = "dap";}
           {name = "nvim_lsp";}
           {name = "nvim_lsp_signature_help";}
-          {name = "treesitter";}
-          {name = "fuzzy_path";}
-          {name = "fuzzy_buffer";}
-          {name = "emoji";}
+          {name = "luasnip";}
+          {name = "buffer";}
         ];
-        mapping = {
-          "<C-k>" = "cmp.mapping.select_prev_item()";
-          "<C-j>" = "cmp.mapping.select_next_item()";
-          "<CR>" = ''
-            cmp.mapping(function(fallback)
-              if cmp.visible() and cmp.get_active_entry() then
-                cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-              else
-                fallback()
-              end
-            end, { "i", "s" })
-          '';
-        };
       };
     };
-
-    copilot-lua = {
-      enable = true;
-      panel.enabled = !config.plugins.cmp.enable;
-      suggestion.enabled = !config.plugins.cmp.enable;
-      filetypes = {
-        markdown = false;
-        yaml = true;
-      };
-    };
-
-    direnv.enable = true;
   };
 }

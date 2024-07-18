@@ -1,18 +1,11 @@
 {pkgs, ...}: {
   extraPlugins = with pkgs.vimPlugins; [
     neotest
+    neotest-go
     neotest-python
   ];
 
-  extraConfigLua = ''
-    require("neotest").setup({
-      adapters = {
-        require("neotest-python")({
-          dap = { justMyCode = false },
-        }),
-      },
-    })
-  '';
+  extraConfigLua = builtins.readFile ./neotest.lua;
   keymaps = let
     neotest = function: "<CMD>lua require('neotest').${function} <CR>";
   in [
