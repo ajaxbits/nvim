@@ -18,7 +18,7 @@
       {
         options.desc = "Rename all instances of word under cursor within buffer";
         key = "<leader>s";
-        action = ''[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]'';
+        action.__raw = ''[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]'';
         mode = ["n" "v"];
       }
       {
@@ -66,28 +66,28 @@
       {
         options.desc = "Paste over without clobbering clipboard.";
         key = "<leader>p";
-        action = ''[["_dP]]'';
+        action.__raw = ''[["_dP]]'';
         mode = ["x"];
         options.silent = true;
       }
       {
         options.desc = "Yank selection or motion into the system clipboard.";
         key = "<leader>y";
-        action = ''[["+y]]'';
+        action.__raw = ''[["+y]]'';
         mode = ["n" "v"];
         options.silent = true;
       }
       {
         options.desc = "Yank current line into the system clipboard.";
         key = "<leader>Y";
-        action = ''[["+y]]'';
+        action.__raw = ''[["+y]]'';
         mode = ["n" "v"];
         options.silent = true;
       }
       {
         options.desc = "Delete selection or motion without clobbering clipboard.";
         key = "<leader>d";
-        action = ''[["_d]]'';
+        action.__raw = ''[["_d]]'';
         mode = ["n" "v"];
         options.silent = true;
       }
