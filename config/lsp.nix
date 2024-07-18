@@ -12,7 +12,7 @@
         jsonls.enable = true;
         nil-ls = {
           enable = true;
-          settings.formatting.command = ["${pkgs.alejandra}/bin/alejandra"];
+          settings.formatting.command = ["${pkgs.nixfmt-rfc-style}/bin/nixfmt"];
         };
         lua-ls.enable = true;
         gopls.enable = true;
