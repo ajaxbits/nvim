@@ -34,6 +34,19 @@
             group_index = 2;
           }
         ];
+        sorting.comparators = [
+          "require('cmp.config.compare').offset"
+          "require('cmp.config.compare').exact"
+          "require('copilot_cmp.comparators').prioritize"
+          "require('cmp.config.compare').score"
+          "require('cmp.config.compare').recently_used"
+          "require('cmp.config.compare').locality"
+          "require('cmp.config.compare').kind"
+          "require('cmp.config.compare').length"
+          "require('cmp.config.compare').order"
+          "require('cmp.config.compare').order"
+        ];
+
         mapping = {
           "<C-p>" = "cmp.mapping.select_prev_item(cmp_select)";
           "<C-n>" = "cmp.mapping.select_next_item(cmp_select)";
