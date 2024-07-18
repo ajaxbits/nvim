@@ -1,53 +1,102 @@
 {
-  lib,
-  config,
-  ...
-}: {
   config = {
-    keymaps =
-      [
+    keymaps = [
+      {
+        options.desc = "Open file browser";
+        key = "<leader>pv";
+        action.__raw = "vim.cmd.Ex";
+        mode = ["n" "v"];
+        options.silent = true;
+      }
+      {
+        options.desc = "Rename LSP symbol under cursor";
+        key = "cd";
+        action.__raw = "vim.lsp.buf.rename";
+        mode = ["n" "v"];
+        options.silent = true;
+      }
+      {
+        options.desc = "Rename all instances of word under cursor within buffer";
+        key = "<leader>s";
+        action = "[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]";
+        mode = ["n" "v"];
+        options.silent = true;
+      }
+      {
+        key = "J";
+        action = "mzJ`z";
+        mode = ["n"];
+        options.silent = true;
+      }
+      {
+        key = "<C-d>";
+        action = "<C-d>zz";
+        mode = ["n"];
+        options.silent = true;
+      }
+      {
+        key = "<C-u>";
+        action = "<C-u>zz";
+        mode = ["n"];
+        options.silent = true;
+      }
+      {
+        key = "n";
+        action = "nzz";
+        mode = ["n"];
+        options.silent = true;
+      }
+      {
+        key = "N";
+        action = "Nzz";
+        mode = ["n"];
+        options.silent = true;
+      }
+      {
+        options.desc = "Paste over without clobbering clipboard.";
+        key = "<leader>p";
+        action = ''[["_dP]]'';
+        mode = ["x"];
+        options.silent = true;
+      }
+      {
+        options.desc = "Yank selection or motion into the system clipboard.";
+        key = "<leader>p";
+        action = ''[["+y]]'';
+        mode = ["n" "v"];
+        options.silent = true;
+      }
+      {
+        options.desc = "Yank current line into the system clipboard.";
+        key = "<leader>p";
+        action = ''[["+y]]'';
+        mode = ["n" "v"];
+        options.silent = true;
+      }
+      {
+        options.desc = "Delete selection or motion without clobbering clipboard.";
+        key = "<leader>d";
+        action = ''[["_d]]'';
+        mode = ["n" "v"];
+        options.silent = true;
+      }
+    ];
+
+    keymapsOnEvents = {
+      InsertEnter = [
         {
-          key = "<Tab>";
-          action = "<cmd>bnext<CR>";
-          mode = ["n"];
-          options.silent = true;
+          action = {
+            __raw = "require(\"cmp\").mapping.confirm()";
+          };
+          key = "<C-y>";
         }
         {
-          key = "<S-Tab>";
-          action = "<cmd>bprev<CR>";
-          mode = ["n"];
-          options.silent = true;
-        }
-        {
-          options.desc = "Rename symbol under cursor";
-          key = "grr";
-          action = "<cmd>lua vim.lsp.buf.rename()<cr>";
-          mode = ["n" "v"];
-          options.silent = true;
-        }
-      ]
-      ++ lib.optionals config.plugins.spider.enable [
-        {
-          mode = ["n" "o" "x"];
-          key = "w";
-          action = "<cmd>lua require('spider').motion('w')<CR>";
-          options.desc = "Spider-w";
-          options.silent = true;
-        }
-        {
-          mode = ["n" "o" "x"];
-          key = "e";
-          action = "<cmd>lua require('spider').motion('e')<CR>";
-          options.desc = "Spider-e";
-          options.silent = true;
-        }
-        {
-          mode = ["n" "o" "x"];
-          key = "b";
-          action = "<cmd>lua require('spider').motion('b')<CR>";
-          options.desc = "Spider-b";
-          options.silent = true;
+          action = {
+            __raw = "require(\"cmp\").mapping.select_next_item()";
+          };
+          key = "<C-n>";
         }
       ];
+    };
   };
 }
