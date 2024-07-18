@@ -18,8 +18,19 @@
       {
         options.desc = "Rename all instances of word under cursor within buffer";
         key = "<leader>s";
-        action = "[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]";
+        action = ''[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]'';
         mode = ["n" "v"];
+      }
+      {
+        key = "J";
+        action = ":m '>+1<CR>gv=gv";
+        mode = ["v"];
+        options.silent = true;
+      }
+      {
+        key = "K";
+        action = ":m '<-2<CR>gv=gv";
+        mode = ["v"];
         options.silent = true;
       }
       {
@@ -61,14 +72,14 @@
       }
       {
         options.desc = "Yank selection or motion into the system clipboard.";
-        key = "<leader>p";
+        key = "<leader>y";
         action = ''[["+y]]'';
         mode = ["n" "v"];
         options.silent = true;
       }
       {
         options.desc = "Yank current line into the system clipboard.";
-        key = "<leader>p";
+        key = "<leader>Y";
         action = ''[["+y]]'';
         mode = ["n" "v"];
         options.silent = true;
@@ -81,22 +92,5 @@
         options.silent = true;
       }
     ];
-
-    keymapsOnEvents = {
-      InsertEnter = [
-        {
-          action = {
-            __raw = "require(\"cmp\").mapping.confirm()";
-          };
-          key = "<C-y>";
-        }
-        {
-          action = {
-            __raw = "require(\"cmp\").mapping.select_next_item()";
-          };
-          key = "<C-n>";
-        }
-      ];
-    };
   };
 }

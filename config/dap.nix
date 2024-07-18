@@ -47,8 +47,7 @@
     }
     {
       key = "<leader>dt";
-      action = "require('dapui').toggle";
-      lua = true;
+      action.__raw = "require('dapui').toggle";
       options.silent = true;
       mode = ["n"];
     }
@@ -66,8 +65,7 @@
     }
     {
       key = "<C-k>";
-      action = "require('dapui').eval";
-      lua = true;
+      action.__raw = "require('dapui').eval";
       options.silent = true;
       mode = ["v"];
     }

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   imports = [
     ./ui.nix
     ./keys.nix
@@ -6,14 +6,11 @@
     ./completion.nix
     ./dap.nix
     ./tree-sitter.nix
-    ./testing.nix
-    ./folding.nix
-    ./nonels.nix
-    ./training.nix
-    ./spelling.nix
     ./git.nix
-
+    ./testing.nix
+    ./nonels.nix
     ./languages/scheme
+    ./telescope.nix
   ];
 
   config = {
@@ -21,32 +18,35 @@
     viAlias = true;
     vimAlias = true;
 
-    clipboard.register = "unnamedplus";
     colorschemes.gruvbox.enable = true;
 
-    options = rec {
-      encoding = "utf-8";
-      expandtab = true;
+    opts = rec {
       autoindent = true;
-      tabstop = 4;
-      softtabstop = tabstop;
-      shiftwidth = tabstop;
+      encoding = "utf-8";
       errorbells = false;
-      visualbell = false;
-      ignorecase = true;
+      expandtab = true;
       hidden = true;
+      ignorecase = true;
+      incsearch = true;
+      mouse = "a";
+      number = true;
+      relativenumber = true;
+      scrolloff = 8;
+      shiftwidth = tabstop;
+      signcolumn = "yes";
       smartcase = true;
+      smartindent = true;
+      softtabstop = tabstop;
       splitbelow = true;
       splitright = true;
-      writebackup = false;
       swapfile = false;
-      relativenumber = true;
-      number = true;
-      mouse = "a";
-      smartindent = true;
+      tabstop = 4;
       undofile = true;
+      visualbell = false;
+      writebackup = false;
     };
 
+    # enable space as leader
     globals.mapleader = " ";
     keymaps = [
       {
@@ -63,25 +63,31 @@
       }
     ];
 
+    globals = {
+      netrw_browse_split = 0;
+      netrw_banner = 0;
+      netrw_winsize = 25;
+    };
+
+    autoCmd = [
+      {
+        event = ["TextYankPost"];
+        pattern = ["*"];
+        callback.__raw = "function() vim.highlight.on_yank({higroup = 'IncSearch', timeout = 40,}) end";
+      }
+    ];
+
     plugins = {
       auto-save.enable = true;
       comment.enable = true;
       leap.enable = true;
-      spider = {
-        enable = true;
-        skipInsignificantPunctuation = false;
-      };
       rainbow-delimiters.enable = true;
-      lastplace.enable = true;
       nvim-autopairs = {
         enable = true;
-        extraOptions.disable_filetype = [
-          "TelescopePrompt"
-          "spectre_panel"
+        settings.disable_filetype = [
           "scheme" # handled by parinfer
         ];
       };
-      todo-comments.enable = true;
       indent-blankline.enable = true;
       surround.enable = true;
       which-key.enable = true;
@@ -95,36 +101,5 @@
         '';
       };
     };
-
-    extraPlugins = [
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "neovim-project";
-        src = pkgs.fetchFromGitHub {
-          owner = "coffebar";
-          repo = "neovim-project";
-          rev = "e7868b38f402be94e859d479002df1418bc1e954";
-          hash = "sha256-9bvvTBCIn1NdTfwGIBgFTgeGQw67R0xRYodlZn/zjEE=";
-        };
-      })
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "neovim-session-manager";
-        src = pkgs.fetchFromGitHub {
-          owner = "Shatur";
-          repo = "neovim-session-manager";
-          rev = "d8e1ba3bbcf3fdc6a887bcfbd94c48ae4707b457";
-          hash = "sha256-+TDWY8mprJfUp9ZFKbz83to7XW8iiovja22jHms+N1A=";
-        };
-      })
-    ];
-
-    extraConfigLua = ''
-      vim.opt.sessionoptions = { "globals" }
-      require("neovim-project").setup {
-        projects = { -- define project roots
-          "~/code/*",
-          "~/projects/*",
-        },
-      }
-    '';
   };
 }

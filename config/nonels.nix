@@ -14,7 +14,7 @@
         diagnostics = {
           actionlint = {
             enable = true;
-            withArgs = ''
+            settings = ''
               {
                 extra_args = { "-ignore", "'label .* is unknown.*'", "-shellcheck=${pkgs.shellcheck}/bin/shellcheck", "-pyflakes=${pkgs.python311Packages.pyflakes}/bin/pyflakes" },
               }
