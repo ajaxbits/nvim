@@ -9,6 +9,7 @@
     ./git.nix
     ./testing.nix
     ./nonels.nix
+    ./languages/terraform
     ./languages/scheme
     ./telescope.nix
   ];

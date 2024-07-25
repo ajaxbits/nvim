@@ -5,7 +5,6 @@
       servers = {
         bashls.enable = true;
         pyright.enable = true;
-        terraformls.enable = true;
         yamlls.enable = true;
         ruff-lsp.enable = true;
         html.enable = true;
