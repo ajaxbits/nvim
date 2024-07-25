@@ -42,6 +42,7 @@
       swapfile = false;
       tabstop = 4;
       undofile = true;
+      updatetime = 50;
       visualbell = false;
       writebackup = false;
     };
