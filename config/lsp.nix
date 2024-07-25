@@ -25,6 +25,7 @@
       };
       keymaps.lspBuf = {
         "<leader>f" = "format";
+        "cd" = "rename";
         K = "hover";
         gD = "references";
         gd = "definition";
