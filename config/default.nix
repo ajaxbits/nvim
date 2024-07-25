@@ -11,6 +11,7 @@
     ./nonels.nix
     ./languages/terraform
     ./languages/scheme
+    ./languages/typst
     ./telescope.nix
   ];
 
