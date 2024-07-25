@@ -14,7 +14,13 @@
           enable = true;
           settings.formatting.command = ["${pkgs.nixfmt-rfc-style}/bin/nixfmt"];
         };
-        lua-ls.enable = true;
+        lua-ls = {
+          enable = true;
+          settings = {
+            telemetry.enable = false;
+            diagnostics.globals = ["vim"];
+          };
+        };
         gopls.enable = true;
       };
       keymaps.lspBuf = {
