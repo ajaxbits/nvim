@@ -1,23 +1,30 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   plugins = {
     lsp = {
       enable = true;
       servers = {
         bashls.enable = true;
         pyright.enable = true;
-        yamlls.enable = true;
+        yamlls = {
+          enable = true;
+          settings.format = {
+            enable = true;
+            proseWrap = "Preserve";
+          };
+        };
         ruff-lsp.enable = true;
         html.enable = true;
         jsonls.enable = true;
         nil-ls = {
           enable = true;
-          settings.formatting.command = ["${pkgs.nixfmt-rfc-style}/bin/nixfmt"];
+          settings.formatting.command = [ "${pkgs.nixfmt-rfc-style}/bin/nixfmt" ];
         };
         lua-ls = {
           enable = true;
           settings = {
             telemetry.enable = false;
-            diagnostics.globals = ["vim"];
+            diagnostics.globals = [ "vim" ];
           };
         };
         gopls.enable = true;
@@ -87,7 +94,7 @@
       options.desc = "Toggle diagnostics window.";
       action = "<cmd>Trouble diagnostics toggle<cr>";
       key = "<leader>xx";
-      mode = ["n"];
+      mode = [ "n" ];
       options.silent = true;
     }
   ];
