@@ -81,6 +81,8 @@
       }
     ];
 
+    performance.byteCompileLua.enable = true;
+
     plugins = {
       auto-save.enable = true;
       comment.enable = true;
