@@ -1,7 +1,0 @@
-{
-  config = {
-    plugins = {};
-
-    autoCmd = [];
-  };
-}

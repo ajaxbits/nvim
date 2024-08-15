@@ -1,19 +1,19 @@
 {
   imports = [
-    ./ui.nix
-    ./keys.nix
-    ./lsp.nix
+    ./ai
     ./completion.nix
     ./dap.nix
-    ./tree-sitter.nix
     ./git.nix
-    ./testing.nix
-    ./nonels.nix
-    ./languages/terraform
+    ./keys.nix
     ./languages/scheme
+    ./languages/terraform
     ./languages/typst
-    ./ai
+    ./lsp.nix
+    ./nonels.nix
     ./telescope.nix
+    ./testing.nix
+    ./tree-sitter.nix
+    ./undotree.nix
   ];
 
   config = {
