@@ -12,6 +12,7 @@
     ./languages/terraform
     ./languages/scheme
     ./languages/typst
+    ./ai
     ./telescope.nix
   ];
 
@@ -56,13 +57,13 @@
         action = "<cmd>nohl<CR><esc>";
         key = "<esc>";
         options.silent = true;
-        mode = ["n"];
+        mode = [ "n" ];
       }
       {
         action = "<nop>";
         key = "<space>";
         options.silent = true;
-        mode = ["n"];
+        mode = [ "n" ];
       }
     ];
 
@@ -74,8 +75,8 @@
 
     autoCmd = [
       {
-        event = ["TextYankPost"];
-        pattern = ["*"];
+        event = [ "TextYankPost" ];
+        pattern = [ "*" ];
         callback.__raw = "function() vim.highlight.on_yank({higroup = 'IncSearch', timeout = 40,}) end";
       }
     ];
@@ -96,7 +97,11 @@
       which-key.enable = true;
       wilder = {
         enable = true;
-        modes = ["/" "?" ":"];
+        modes = [
+          "/"
+          "?"
+          ":"
+        ];
         renderer = ''
           wilder.wildmenu_renderer({
             highlighter = wilder.basic_highlighter(),
