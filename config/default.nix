@@ -3,6 +3,7 @@
     ./ai
     ./completion.nix
     ./dap.nix
+    ./folding
     ./git.nix
     ./keys.nix
     ./languages/scheme
