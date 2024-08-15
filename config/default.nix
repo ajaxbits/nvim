@@ -8,7 +8,6 @@
     ./keys.nix
     ./languages/scheme
     ./languages/terraform
-    ./languages/typst
     ./lsp.nix
     ./nonels.nix
     ./telescope.nix
