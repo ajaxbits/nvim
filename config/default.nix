@@ -6,6 +6,7 @@
     ./folding
     ./git.nix
     ./keys.nix
+    ./languages/toml
     ./languages/scheme
     ./languages/terraform
     ./lsp.nix
