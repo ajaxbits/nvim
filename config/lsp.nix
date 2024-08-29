@@ -13,7 +13,12 @@
             proseWrap = "Preserve";
           };
         };
-        ruff-lsp.enable = true;
+        ruff = {
+          enable = true;
+          extraOptions.init_options.settings = {
+            lineLength = 120;
+          };
+        };
         html.enable = true;
         jsonls.enable = true;
         nil-ls = {
