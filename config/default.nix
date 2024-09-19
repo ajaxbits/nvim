@@ -9,6 +9,7 @@
     ./languages/toml
     ./languages/scheme
     ./languages/terraform
+    ./languages/python
     ./lsp.nix
     ./nonels.nix
     ./telescope.nix
