@@ -4,7 +4,7 @@
     ./completion.nix
     ./dap.nix
     ./folding
-    ./git.nix
+    ./git
     ./keys.nix
     ./languages/toml
     ./languages/scheme
