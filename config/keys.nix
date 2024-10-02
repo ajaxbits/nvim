@@ -2,13 +2,6 @@
   extraConfigLua = builtins.readFile ./keys.lua;
   keymaps = [
     {
-      options.desc = "Open file browser";
-      key = "<leader>lt";
-      action.__raw = "vim.cmd.Ex";
-      mode = ["n" "v"];
-      options.silent = true;
-    }
-    {
       key = "J";
       action = ":m '>+1<CR>gv=gv";
       mode = ["v"];

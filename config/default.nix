@@ -69,11 +69,11 @@
       }
     ];
 
-    globals = {
-      netrw_browse_split = 0;
-      netrw_banner = 0;
-      netrw_winsize = 25;
-    };
+    # globals = {
+    #   netrw_browse_split = 0;
+    #   netrw_banner = 0;
+    #   netrw_winsize = 25;
+    # };
 
     autoCmd = [
       {
@@ -87,6 +87,19 @@
 
     plugins = {
       auto-save.enable = true;
+      auto-save.settings = {
+        condition = ''
+          function(buf)
+            local fn = vim.fn
+            local utils = require("auto-save.utils.data")
+            if utils.not_in(fn.getbufvar(buf, "&filetype"), {'oil'}) then
+              return true
+            end
+            return false
+          end
+        '';
+        write_all_buffers = true;
+      };
       comment.enable = true;
       leap.enable = true;
       rainbow-delimiters.enable = true;
@@ -97,6 +110,10 @@
         ];
       };
       indent-blankline.enable = true;
+      oil = {
+        enable = true;
+        settings.view_options.show_hidden = true;
+      };
       surround.enable = true;
       which-key.enable = true;
       wilder = {
