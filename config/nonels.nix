@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, lib, ... }:
+{
   config = {
     opts = {
       spell = true;
@@ -16,7 +17,7 @@
             enable = true;
             settings = ''
               {
-                extra_args = { "-ignore", "'label .* is unknown.*'", "-shellcheck=${pkgs.shellcheck}/bin/shellcheck", "-pyflakes=${pkgs.python311Packages.pyflakes}/bin/pyflakes" },
+                extra_args = { "-ignore", "'label .* is unknown.*'", "-shellcheck=${lib.getExe pkgs.shellcheck}", "-pyflakes=${lib.getExe pkgs.python311Packages.pyflakes}" },
               }
             '';
           };

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   plugins = {
     lsp = {
@@ -23,7 +23,7 @@
         jsonls.enable = true;
         nil-ls = {
           enable = true;
-          settings.formatting.command = [ "${pkgs.nixfmt-rfc-style}/bin/nixfmt" ];
+          settings.formatting.command = [ (lib.getExe pkgs.nixfmt-rfc-style) ];
         };
         lua-ls = {
           enable = true;

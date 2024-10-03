@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   config = {
     plugins.gitlinker.enable = true;
@@ -17,7 +17,7 @@
         }
         {
           options.desc = "Open pr on GitHub.";
-          action = "<cmd>! ${pkgs.gh}/bin/gh pr view -w<cr>";
+          action = "<cmd>! ${lib.getExe pkgs.gh} pr view -w<cr>";
           key = "${openPrefix}p";
           options.silent = true;
           mode = [ "n" ];
