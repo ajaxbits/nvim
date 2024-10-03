@@ -115,7 +115,43 @@
         settings.view_options.show_hidden = true;
       };
       surround.enable = true;
-      which-key.enable = true;
+      mini = {
+        enable = true;
+        modules.clue = {
+          triggers =
+            let
+              mkTrigger = mode: keys: { inherit mode keys; }; # nixfmt makes this bad normally
+            in
+            [
+              (mkTrigger "n" "<Leader>")
+              (mkTrigger "x" "<Leader>")
+              (mkTrigger "i" "<C-x>")
+              (mkTrigger "n" "g")
+              (mkTrigger "x" "g")
+              (mkTrigger "n" "\"")
+              (mkTrigger "n" "`")
+              (mkTrigger "x" "\"")
+              (mkTrigger "x" "`")
+              (mkTrigger "n" "\"")
+              (mkTrigger "x" "\"")
+              (mkTrigger "i" "<C-r>")
+              (mkTrigger "c" "<C-r>")
+              (mkTrigger "n" "<C-w>")
+              (mkTrigger "n" "z")
+              (mkTrigger "x" "z")
+            ];
+
+          clues = [
+            { __raw = "require('mini.clue').gen_clues.builtin_completion()"; }
+            { __raw = "require('mini.clue').gen_clues.g()"; }
+            { __raw = "require('mini.clue').gen_clues.marks()"; }
+            { __raw = "require('mini.clue').gen_clues.registers()"; }
+            { __raw = "require('mini.clue').gen_clues.windows()"; }
+            { __raw = "require('mini.clue').gen_clues.z()"; }
+          ];
+
+        };
+      };
       wilder = {
         enable = true;
         modes = [
