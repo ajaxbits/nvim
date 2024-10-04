@@ -1,4 +1,3 @@
-{ lib, ... }:
 {
   imports = [
     ./ai
@@ -118,17 +117,6 @@
       mini = {
         enable = true;
         modules = {
-          animate =
-            let
-              transitionTimeMs = 100;
-              enabledTransitions = [
-                "scroll"
-              ];
-            in
-            lib.genAttrs enabledTransitions (_: {
-              timing.__raw = "require('mini.animate').gen_timing.linear({ duration = ${builtins.toString transitionTimeMs}, unit = 'total' })";
-            });
-
           clue = {
             triggers =
               let
