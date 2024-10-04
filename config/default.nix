@@ -128,6 +128,7 @@
             lib.genAttrs enabledTransitions (_: {
               timing.__raw = "require('mini.animate').gen_timing.linear({ duration = ${builtins.toString transitionTimeMs}, unit = 'total' })";
             });
+
           clue = {
             triggers =
               let
@@ -163,6 +164,8 @@
           };
 
           statusline.use_icons = true;
+
+          trailspace = { };
         };
       };
       wilder = {
