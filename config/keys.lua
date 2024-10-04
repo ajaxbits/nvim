@@ -9,6 +9,7 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete selection or
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
     { desc = "Rename all instances of word under cursor within buffer" })
+vim.keymap.set({ "v" }, "<leader>s", [[:!sort | uniq<CR>]], { desc = "Sort and deduplicate lines" })
 
 -- Navigate between windows using Ctrl + h/j/k/l
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
