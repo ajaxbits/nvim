@@ -3,7 +3,6 @@
     ./ai
     ./completion.nix
     ./dap.nix
-    ./folding
     ./git
     ./keys.nix
     ./languages/toml
