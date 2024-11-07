@@ -5,10 +5,11 @@
     ./dap.nix
     ./git
     ./keys.nix
-    ./languages/toml
+    ./languages/astro
+    ./languages/python
     ./languages/scheme
     ./languages/terraform
-    ./languages/python
+    ./languages/toml
     ./lsp.nix
     ./nonels.nix
     ./telescope.nix
@@ -18,6 +19,8 @@
   ];
 
   config = {
+    performance.byteCompileLua.enable = true;
+
     enableMan = false;
     viAlias = true;
     vimAlias = true;
@@ -78,20 +81,17 @@
       {
         event = [ "FileType" ];
         pattern = [ "*" ];
-        callback.__raw =
-          ''
-            function()
-                local spell_filetypes = {"markdown", "jj", "md"}
-                local ts_lang = vim.treesitter.language.get_lang(vim.bo.filetype)
-                if vim.tbl_contains(spell_filetypes, ts_lang) then
-                  vim.opt_local.spell = true
-                end
+        callback.__raw = ''
+          function()
+              local spell_filetypes = {"markdown", "jj", "md"}
+              local ts_lang = vim.treesitter.language.get_lang(vim.bo.filetype)
+              if vim.tbl_contains(spell_filetypes, ts_lang) then
+                vim.opt_local.spell = true
               end
-          '';
+            end
+        '';
       }
     ];
-
-    performance.byteCompileLua.enable = true;
 
     plugins = {
       auto-save.enable = true;

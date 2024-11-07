@@ -16,5 +16,6 @@
       settings.max_lines = 4;
     };
     ts-comments.enable = true;
+    ts-context-commentstring.enable = true;
   };
 }
