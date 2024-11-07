@@ -41,6 +41,7 @@
       smartcase = true;
       smartindent = true;
       softtabstop = tabstop;
+      spelllang = "en_us";
       splitbelow = true;
       splitright = true;
       swapfile = false;
@@ -68,17 +69,25 @@
       }
     ];
 
-    # globals = {
-    #   netrw_browse_split = 0;
-    #   netrw_banner = 0;
-    #   netrw_winsize = 25;
-    # };
-
     autoCmd = [
       {
         event = [ "TextYankPost" ];
         pattern = [ "*" ];
         callback.__raw = "function() vim.highlight.on_yank({higroup = 'IncSearch', timeout = 40,}) end";
+      }
+      {
+        event = [ "FileType" ];
+        pattern = [ "*" ];
+        callback.__raw = # lua
+          ''
+            function()
+                local spell_filetypes = {"markdown", "jj", "md"}
+                local ts_lang = vim.treesitter.language.get_lang(vim.bo.filetype)
+                if vim.tbl_contains(spell_filetypes, ts_lang) then
+                  vim.opt_local.spell = true
+                end
+              end
+          '';
       }
     ];
 
@@ -87,16 +96,17 @@
     plugins = {
       auto-save.enable = true;
       auto-save.settings = {
-        condition = ''
-          function(buf)
-            local fn = vim.fn
-            local utils = require("auto-save.utils.data")
-            if utils.not_in(fn.getbufvar(buf, "&filetype"), {'oil'}) then
-              return true
+        condition = # lua
+          ''
+            function(buf)
+              local fn = vim.fn
+              local utils = require("auto-save.utils.data")
+              if utils.not_in(fn.getbufvar(buf, "&filetype"), {'oil'}) then
+                return true
+              end
+              return false
             end
-            return false
-          end
-        '';
+          '';
         write_all_buffers = true;
       };
       comment.enable = true;
@@ -163,11 +173,12 @@
           "?"
           ":"
         ];
-        renderer = ''
-          wilder.wildmenu_renderer({
-            highlighter = wilder.basic_highlighter(),
-          })
-        '';
+        renderer = # lua
+          ''
+            wilder.wildmenu_renderer({
+              highlighter = wilder.basic_highlighter(),
+            })
+          '';
       };
     };
   };
