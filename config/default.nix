@@ -78,7 +78,7 @@
       {
         event = [ "FileType" ];
         pattern = [ "*" ];
-        callback.__raw = # lua
+        callback.__raw =
           ''
             function()
                 local spell_filetypes = {"markdown", "jj", "md"}
@@ -109,7 +109,6 @@
           '';
         write_all_buffers = true;
       };
-      comment.enable = true;
       leap.enable = true;
       rainbow-delimiters.enable = true;
       nvim-autopairs = {
