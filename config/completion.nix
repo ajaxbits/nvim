@@ -1,6 +1,11 @@
 {
   plugins = {
     luasnip.enable = true;
+    luasnip.fromVscode = [
+      { }
+      { paths = ../snippets; }
+    ];
+    friendly-snippets.enable = true;
     copilot-lua = {
       enable = true;
       settings = {

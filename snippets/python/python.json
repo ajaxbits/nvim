@@ -1,0 +1,9 @@
+{
+    "This is a test": {
+        "prefix": "pywowieMe",
+        "body": [
+            "wowie this is a snippet"
+        ],
+        "description": "This is a test"
+    }
+}
