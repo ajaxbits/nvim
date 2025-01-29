@@ -1,6 +1,5 @@
 {
   imports = [
-    ./hunk.nix
     ./links.nix
     ./octo.nix
   ];

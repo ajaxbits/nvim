@@ -3,11 +3,13 @@
     luasnip.enable = true;
     copilot-cmp = {
       enable = true;
-      fixPairs = true;
+      settings.fixPairs = true;
     };
     copilot-lua = {
-      panel.enabled = false;
-      suggestion.enabled = false;
+      settings = {
+        panel.enabled = false;
+        suggestion.enabled = false;
+      };
     };
     cmp = {
       enable = true;

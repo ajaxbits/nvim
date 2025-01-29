@@ -10,7 +10,7 @@
       name = "conjure.lua";
       src = ./conjure.lua;
 
-      csi = lib.getExe pkgs.chicken;
+      csi = lib.getExe' pkgs.chicken "chicken";
     }
   );
 }

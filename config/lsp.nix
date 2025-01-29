@@ -21,11 +21,11 @@
         };
         html.enable = true;
         jsonls.enable = true;
-        nil-ls = {
+        nil_ls = {
           enable = true;
           settings.formatting.command = [ (lib.getExe pkgs.nixfmt-rfc-style) ];
         };
-        lua-ls = {
+        lua_ls = {
           enable = true;
           settings = {
             telemetry.enable = false;

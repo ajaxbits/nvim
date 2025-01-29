@@ -122,9 +122,10 @@
         enable = true;
         settings.view_options.show_hidden = true;
       };
-      surround.enable = true;
+      vim-surround.enable = true;
       mini = {
         enable = true;
+        mockDevIcons = true;
         modules = {
           clue = {
             triggers =
@@ -160,7 +161,11 @@
             ];
           };
 
+          icons = { };
+
           statusline.use_icons = true;
+
+          tabline = { };
 
           trailspace = { };
         };
