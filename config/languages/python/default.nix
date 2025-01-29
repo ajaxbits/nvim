@@ -19,7 +19,7 @@
     extraConfigLua = builtins.readFile ./venv-selector.lua;
     extraPlugins = [
       (pkgs.vimUtils.buildVimPlugin {
-        name = "hunk.nvim";
+        name = "venv-selector.nvim";
         src = pkgs.fetchFromGitHub {
           owner = "linux-cultist";
           repo = "venv-selector.nvim";
