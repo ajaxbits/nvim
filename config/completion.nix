@@ -1,67 +1,126 @@
 {
   plugins = {
     luasnip.enable = true;
-    copilot-cmp = {
-      enable = true;
-      settings.fixPairs = true;
-    };
     copilot-lua = {
+      enable = true;
       settings = {
         panel.enabled = false;
         suggestion.enabled = false;
       };
     };
-    cmp = {
+    blink-cmp = {
       enable = true;
       settings = {
-        sources = [
-          {
-            name = "nvim_lsp";
-            group_index = 2;
-          }
-          {
-            name = "nvim_lsp_signature_help";
-            group_index = 2;
-          }
-          {
-            name = "luasnip";
-            group_index = 2;
-          }
-          {
-            name = "copilot";
-            group_index = 2;
-          }
-          {
-            name = "buffer";
-            group_index = 2;
-          }
-        ];
-        sorting.comparators = [
-          "require('cmp.config.compare').offset"
-          "require('cmp.config.compare').exact"
-          "require('copilot_cmp.comparators').prioritize"
-          "require('cmp.config.compare').score"
-          "require('cmp.config.compare').recently_used"
-          "require('cmp.config.compare').locality"
-          "require('cmp.config.compare').kind"
-          "require('cmp.config.compare').length"
-          "require('cmp.config.compare').order"
-          "require('cmp.config.compare').order"
-        ];
+        signature.enabled = true;
+        sources = {
+          default = [
+            "lsp"
+            "copilot"
+            "path"
+            "snippets"
+            "buffer"
+          ];
+          providers = {
+            copilot = {
+              async = true;
+              module = "blink-cmp-copilot";
+              name = "copilot";
+              transform_items.__raw = ''
+                function(_, items)
+                  local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
+                  local kind_idx = #CompletionItemKind + 1
+                  CompletionItemKind[kind_idx] = "Copilot"
+                  for _, item in ipairs(items) do
+                    item.kind = kind_idx
+                  end
+                  return items
+                end,
 
-        mapping = {
-          "<C-p>" = "cmp.mapping.select_prev_item(cmp_select)";
-          "<C-n>" = "cmp.mapping.select_next_item(cmp_select)";
-          "<C-y>" = "cmp.mapping.confirm({ select = true })";
-          "<C-Space>" = "cmp.mapping.complete()";
+              '';
+            };
+          };
         };
-        snippet.expand = ''
-          function(args)
-            require('luasnip').lsp_expand(args.body)
-          end
-        '';
+
+        completion = {
+          list = {
+            selection = {
+              preselect.__raw = ''
+                function(ctx)
+                  return ctx.mode ~= 'cmdline' and not require('blink.cmp').snippet_active({ direction = 1 })
+                end
+              '';
+            };
+          };
+          documentation = {
+            auto_show = true;
+            auto_show_delay_ms = 0;
+            treesitter_highlighting = true;
+          };
+          trigger.show_in_snippet = false;
+          menu = {
+            auto_show = true;
+            draw.treesitter = [ "lsp" ];
+          };
+        };
+
+        snippets = {
+          preset = "luasnip";
+          expand.__raw = ''
+            function(snippet) require('luasnip').lsp_expand(snippet) end
+          '';
+          active.__raw = ''
+            function(filter)
+              if filter and filter.direction then
+                return require('luasnip').jumpable(filter.direction)
+              end
+              return require('luasnip').in_snippet()
+            end
+          '';
+          jump.__raw = ''
+            function(direction) require('luasnip').jump(direction) end
+          '';
+        };
+
+        appearance = {
+          nerd_font_variant = "normal";
+          kind_icons = {
+            Copilot = "";
+            Text = "󰉿";
+            Method = "󰊕";
+            Function = "󰊕";
+            Constructor = "󰒓";
+
+            Field = "󰜢";
+            Variable = "󰆦";
+            Property = "󰖷";
+
+            Class = "󱡠";
+            Interface = "󱡠";
+            Struct = "󱡠";
+            Module = "󰅩";
+
+            Unit = "󰪚";
+            Value = "󰦨";
+            Enum = "󰦨";
+            EnumMember = "󰦨";
+
+            Keyword = "󰻾";
+            Constant = "󰏿";
+
+            Snippet = "󱄽";
+            Color = "󰏘";
+            File = "󰈔";
+            Reference = "󰬲";
+            Folder = "󰉋";
+            Event = "󱐋";
+            Operator = "󰪚";
+            TypeParameter = "󰬛";
+          };
+
+        };
       };
     };
+    blink-cmp-copilot.enable = true;
   };
 
   diagnostics.float = {
