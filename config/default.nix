@@ -19,7 +19,15 @@
   ];
 
   config = {
-    performance.byteCompileLua.enable = true;
+    performance = {
+      byteCompileLua = {
+        enable = true;
+        configs = true;
+        initLua = true;
+        nvimRuntime = true;
+        plugins = true;
+      };
+    };
 
     enableMan = false;
     viAlias = true;

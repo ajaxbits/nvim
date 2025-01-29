@@ -1,5 +1,3 @@
-local chatgpt = require("chatgpt")
-
 if os.getenv("OPENAI_API_KEY") then
     vim.keymap.set({ "n", "v" }, "<leader>ac", "<cmd>ChatGPT<CR>", { desc = "AI Chat" })
     vim.keymap.set({ "n", "v" }, "<leader>ap", "<cmd>ChatGPTActAs<CR>", { desc = "AI Act As" })
