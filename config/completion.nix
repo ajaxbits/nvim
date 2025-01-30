@@ -1,10 +1,13 @@
 {
   plugins = {
-    luasnip.enable = true;
-    luasnip.fromVscode = [
-      { }
-      { paths = ../snippets; }
-    ];
+    luasnip = {
+      enable = true;
+      fromVscode = [
+        { }
+        { paths = ../snippets; }
+        { paths = "~/.vscode/snippets"; }
+      ];
+    };
     friendly-snippets.enable = true;
     copilot-lua = {
       enable = true;
@@ -19,13 +22,19 @@
         signature.enabled = true;
         sources = {
           default = [
-            "lsp"
+            "buffer"
             "copilot"
+            "lsp"
             "path"
             "snippets"
-            "buffer"
           ];
           providers = {
+            lsp.score_offset = 1000;
+            snippets.score_offset = 900;
+            path.score_offset = 700;
+            copilot.score_offset = 600;
+            buffer.score_offset = 500;
+
             copilot = {
               async = true;
               module = "blink-cmp-copilot";
@@ -40,7 +49,6 @@
                   end
                   return items
                 end,
-
               '';
             };
           };

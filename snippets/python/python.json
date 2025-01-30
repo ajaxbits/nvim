@@ -1,9 +1,12 @@
 {
-    "This is a test": {
-        "prefix": "pywowieMe",
+    "Optimal type checking imports through if TYPE_CHECKING": {
+        "prefix": "typeim",
         "body": [
-            "wowie this is a snippet"
+            "from __future__ import annotations",
+            "from typing import TYPE_CHECKING",
+            "if TYPE_CHECKING:  # pragma: no cover",
+            "  from ${1:module} import ${2:dependency}"
         ],
-        "description": "This is a test"
+        "description": "Optimal type checking imports through if TYPE_CHECKING"
     }
 }
