@@ -71,7 +71,11 @@
           };
           trigger.show_in_snippet = false;
           menu = {
-            auto_show = true;
+            auto_show.__raw = ''
+              function(ctx)
+                return ctx.mode ~= "cmdline" or not vim.tbl_contains({ '/', '?' }, vim.fn.getcmdtype())
+              end
+            '';
             draw.treesitter = [ "lsp" ];
           };
         };
