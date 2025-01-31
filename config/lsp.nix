@@ -13,12 +13,7 @@
             proseWrap = "Preserve";
           };
         };
-        ruff = {
-          enable = true;
-          extraOptions.init_options.settings = {
-            lineLength = 120;
-          };
-        };
+        ruff.enable = true;
         html.enable = true;
         jsonls.enable = true;
         nil_ls = {
@@ -35,7 +30,6 @@
         gopls.enable = true;
       };
       keymaps.lspBuf = {
-        "<leader>f" = "format";
         "cd" = "rename";
         K = "hover";
         gD = "references";

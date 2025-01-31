@@ -3,6 +3,7 @@
     ./ai
     ./completion.nix
     ./dap.nix
+    ./formatting.nix
     ./git
     ./keys.nix
     ./languages/astro
