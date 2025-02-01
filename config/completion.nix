@@ -2,6 +2,7 @@
   plugins = {
     luasnip = {
       enable = true;
+      lazyLoad.settings.event = "InsertEnter";
       fromVscode = [
         { }
         { paths = ../snippets; }
@@ -18,6 +19,10 @@
     };
     blink-cmp = {
       enable = true;
+      lazyLoad.settings.event = [
+        "InsertEnter"
+        "CmdLineEnter"
+      ];
       settings = {
         signature.enabled = true;
         sources = {

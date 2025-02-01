@@ -103,6 +103,7 @@
     ];
 
     plugins = {
+      lz-n.enable = true;
       auto-save.enable = true;
       auto-save.settings = {
         condition = # lua
