@@ -30,7 +30,6 @@
         gopls.enable = true;
       };
       keymaps.lspBuf = {
-        "cd" = "rename";
         K = "hover";
         gD = "references";
         gd = "definition";
@@ -39,6 +38,22 @@
         "<leader>ca" = "code_action";
       };
       keymaps.silent = true;
+    };
+    fastaction = {
+      enable = true;
+      lazyLoad.settings.event = "DeferredUIEnter";
+      lazyLoad.settings.keys = [
+        {
+          desc = "Code Action";
+          __unkeyed-1 = "<leader>ca";
+          __unkeyed-3.__raw = # lua
+            ''
+              function()
+                require('fastaction').code_action()
+              end
+            '';
+        }
+      ];
     };
     trouble = {
       enable = true;

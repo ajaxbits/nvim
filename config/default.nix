@@ -13,6 +13,8 @@
     ./languages/toml
     ./lsp.nix
     ./nonels.nix
+    ./refactoring.nix
+    ./tasks.nix
     ./telescope.nix
     ./testing.nix
     ./tree-sitter.nix
