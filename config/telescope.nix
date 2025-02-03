@@ -7,11 +7,11 @@
         action = "git_files";
         options.desc = "Telescope Git Files";
       };
-      "<leader>lf" = {
+      "<leader>of" = {
         action = "find_files";
         options.desc = "Find files";
       };
-      "<leader>ls" = {
+      "<leader>os" = {
         action = "live_grep";
         options.desc = "Grep files";
       };

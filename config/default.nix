@@ -1,8 +1,10 @@
 {
   imports = [
     ./ai
+    ./buffers.nix
     ./completion.nix
     ./dap.nix
+    ./diagnostics.nix
     ./formatting.nix
     ./git
     ./keys.nix
@@ -31,12 +33,17 @@
         plugins = true;
       };
     };
+    luaLoader.enable = true;
 
     enableMan = false;
     viAlias = true;
     vimAlias = true;
 
-    colorschemes.gruvbox.enable = true;
+    colorscheme = "gruvbox";
+    colorschemes.gruvbox = {
+      enable = true;
+      lazyLoad.enable = true;
+    };
 
     opts = rec {
       autoindent = true;
@@ -66,8 +73,15 @@
       writebackup = false;
     };
 
-    # enable space as leader
-    globals.mapleader = " ";
+    globals = {
+      # enable space as leader
+      mapleader = " ";
+      # Disable useless providers
+      loaded_ruby_provider = 0; # Ruby
+      loaded_perl_provider = 0; # Perl
+      loaded_python_provider = 0; # Python 2
+    };
+
     keymaps = [
       {
         action = "<cmd>nohl<CR><esc>";

@@ -2,29 +2,6 @@
   plugins = {
     refactoring = {
       enable = true;
-      enableTelescope = true;
-
-      lazyLoad = {
-        settings = {
-          before = {
-            __raw = ''
-              require('lz.n').trigger_load('telescope')
-            '';
-          };
-          cmd = "Refactor";
-          keys = [
-            {
-              __unkeyed-1 = "<leader>fR";
-              __unkeyed-3.__raw = ''
-                function()
-                  require('telescope').extensions.refactoring.refactors()
-                end
-              '';
-              desc = "Refactoring";
-            }
-          ];
-        };
-      };
     };
   };
 

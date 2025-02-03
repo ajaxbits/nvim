@@ -144,13 +144,4 @@
     };
     blink-cmp-copilot.enable = true;
   };
-
-  diagnostics.float = {
-    focusable = false;
-    style = "minimal";
-    border = "rounded";
-    source = "always";
-    header = "";
-    prefix = "";
-  };
 }
