@@ -37,12 +37,13 @@
           gd = "definition";
           gi = "implementation";
           gt = "type_definition";
+          grr = "rename";
         };
         diagnostic = {
           # Navigate in diagnostics
           "<leader>l[" = "goto_prev";
           "<leader>l]" = "goto_next";
-          "<leader>lH" = "open_float";
+          "<leader>lh" = "open_float";
         };
         silent = true;
       };
