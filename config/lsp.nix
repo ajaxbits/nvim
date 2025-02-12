@@ -29,6 +29,7 @@
           };
         };
         gopls.enable = true;
+        biome.enable = true;
       };
       keymaps = {
         lspBuf = {
