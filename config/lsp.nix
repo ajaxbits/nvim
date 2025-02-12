@@ -29,6 +29,7 @@
           };
         };
         gopls.enable = true;
+        denols.enable = true;
       };
       keymaps = {
         lspBuf = {
