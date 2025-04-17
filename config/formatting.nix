@@ -19,12 +19,12 @@
           ];
           svelte = jsFormatters;
           typescript = jsFormatters;
+          typst = [ "typstyle" ];
           typescriptreact = jsFormatters;
         };
       formatters = {
-        prettierd = {
-          command = lib.getExe pkgs.prettierd;
-        };
+        prettierd.command = lib.getExe pkgs.prettierd;
+        typstyle.command = lib.getExe pkgs.typstyle;
         ruff_format.args = [
           "format"
           "--line-length=120"
