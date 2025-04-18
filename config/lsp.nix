@@ -6,6 +6,7 @@
 
       servers = {
         bashls.enable = true;
+        eslint.enable = true;
         pyright.enable = true;
         yamlls = {
           enable = true;
@@ -29,7 +30,6 @@
           };
         };
         gopls.enable = true;
-        denols.enable = true;
       };
       keymaps = {
         lspBuf = {

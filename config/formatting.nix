@@ -9,7 +9,11 @@
           jsFormatters = [ "prettierd" ];
         in
         {
-          "*" = [ "trim_whitespace" ];
+          "*" = [
+            "squeeze_blanks"
+            "trim_newlines"
+            "trim_whitespace"
+          ];
           javascript = jsFormatters;
           javascriptreact = jsFormatters;
           json = [ "fixjson" ];

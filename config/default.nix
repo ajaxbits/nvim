@@ -12,6 +12,7 @@
     ./languages/python
     ./languages/scheme
     ./languages/terraform
+    ./languages/typescript
     ./languages/toml
     ./lsp.nix
     ./nonels.nix
