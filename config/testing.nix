@@ -3,6 +3,10 @@
     enable = true;
     adapters = {
       go.enable = true;
+      jest = {
+        enable = true;
+        settings.env.NODE_OPTIONS = "--experimental-vm-modules";
+      };
       python.enable = true;
     };
   };
