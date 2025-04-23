@@ -2,10 +2,16 @@
   pkgs,
   ...
 }:
+let
+  inherit (pkgs) nodejs typescript;
+in
 {
-  extraPackages = [
-    pkgs.nodejs
+  imports = [
+    ./debugging.nix
+    # ./jester.nix
   ];
+
+  extraPackages = [ nodejs ];
 
   plugins = {
     typescript-tools = {
@@ -33,7 +39,7 @@
         separate_diagnostic_server = true;
         tsserver_locale = "en";
         tsserver_max_memory = "auto";
-        tsserver_path = "${pkgs.typescript}/lib/node_modules/typescript/lib/tsserver.js";
+        tsserver_path = "${typescript}/lib/node_modules/typescript/lib/tsserver.js";
       };
     };
   };

@@ -5,6 +5,7 @@
     nixvim.url = "github:nix-community/nixvim";
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # vscode-js-debug.url = "github:willruggiano/vscode-js-debug.nix";
   };
 
   outputs =
