@@ -1,3 +1,4 @@
+{ pkgs, lib, ... }:
 {
   plugins = {
     dap.enable = true;
@@ -8,6 +9,19 @@
     dap-ui.enable = true;
     dap-virtual-text.enable = true;
   };
+
+  # extraPlugins = with pkgs.vimUtils; [
+  #   (buildVimPlugin {
+  #     # name = "vim-dap-vscode-js";
+  #     name = "nvim-dap-vscode-js";
+  #     src = pkgs.fetchFromGitHub {
+  #       owner = "mxsdev";
+  #       repo = "nvim-dap-vscode-js";
+  #       rev = "03bd29672d7fab5e515fc8469b7d07cc5994bbf6";
+  #       hash = "sha256-8dlzaI94I8ppzLRNIfjVd92kYgqr07D1akDj4VdKQto=";
+  #     };
+  #   })
+  # ];
 
   extraConfigLua = ''
     require("dap").listeners.before.attach.dapui_config = function()
