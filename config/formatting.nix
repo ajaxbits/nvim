@@ -23,6 +23,7 @@
           ];
           svelte = jsFormatters;
           typescript = jsFormatters;
+          nix = [ "nixfmt" ];
           typst = [ "typstyle" ];
           typescriptreact = jsFormatters;
         };
@@ -38,6 +39,7 @@
           "-"
         ];
         fixjson.command = lib.getExe pkgs.fixjson;
+        nixfmt.command = lib.getExe pkgs.nixfmt-rfc-style;
       };
     };
   };
