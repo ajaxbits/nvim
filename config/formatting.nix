@@ -15,6 +15,10 @@
             "trim_whitespace"
           ];
           javascript = jsFormatters;
+          go = [
+            "gofumpt"
+            "goimports"
+          ];
           javascriptreact = jsFormatters;
           json = [ "fixjson" ];
           python = [
@@ -40,6 +44,8 @@
         ];
         fixjson.command = lib.getExe pkgs.fixjson;
         nixfmt.command = lib.getExe pkgs.nixfmt-rfc-style;
+        gofumpt.command = lib.getExe pkgs.gofumpt;
+        goimports.command = lib.getExe' pkgs.gotools "goimports";
       };
     };
   };
