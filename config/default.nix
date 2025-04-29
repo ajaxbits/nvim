@@ -9,6 +9,7 @@
     ./git
     ./keys.nix
     ./languages/astro
+    ./languages/html
     ./languages/python
     ./languages/scheme
     ./languages/terraform
