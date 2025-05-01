@@ -33,7 +33,6 @@
           desc = "Debug test under cursor";
           __unkeyed-1 = "<leader>td";
           __unkeyed-3.__raw = neotest "run.run({strategy='dap'})";
-          options.silent = true;
         }
         {
           desc = "Run all tests in file";
