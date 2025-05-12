@@ -10,6 +10,7 @@
     ./keys.nix
     ./languages/astro
     ./languages/html
+    ./languages/css
     ./languages/python
     ./languages/scheme
     ./languages/terraform
