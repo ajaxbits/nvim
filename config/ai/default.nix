@@ -1,1 +1,6 @@
-{ imports = [ ./chatgpt.nix ]; }
+{
+  imports = [
+    ./chatgpt.nix
+    ./copilot-chat.nix
+  ];
+}
