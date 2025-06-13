@@ -15,6 +15,7 @@
     ./languages/python
     ./languages/rust
     ./languages/scheme
+    ./languages/sql
     ./languages/terraform
     ./languages/toml
     ./languages/typescript
