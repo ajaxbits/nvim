@@ -32,6 +32,7 @@ in
           ".direnv"
           ".git"
           ".jj"
+          ".tox"
           ".venv"
           "node_modules"
         ];
