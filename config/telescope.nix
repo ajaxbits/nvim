@@ -1,3 +1,8 @@
+{ pkgs, lib, ... }:
+let
+  fd = lib.getExe pkgs.fd;
+  rg = lib.getExe pkgs.ripgrep;
+in
 {
   plugins.telescope = {
     enable = true;
@@ -15,6 +20,65 @@
         action = "live_grep";
         options.desc = "Grep files";
       };
+      "<leader>ob" = {
+        action = "buffers";
+        options.desc = "Open buffers";
+      };
     };
+    settings =
+      let
+        excludes = [
+          ".direnv"
+          ".git"
+          ".jj"
+          "node_modules"
+          ".venv"
+        ];
+        grepExcludes = [
+          "*.lock"
+          "**/package-lock.json"
+        ];
+      in
+      {
+        defaults = {
+          vimgrep_arguments =
+            [
+              rg
+              "--color=never"
+              "--column"
+              "--hidden"
+              "--line-number"
+              "--no-heading"
+              "--smart-case"
+              "--with-filename"
+            ]
+            ++ (lib.concatLists (
+              map (pattern: [
+                "--glob"
+                "!${pattern}/*"
+              ]) excludes
+            ))
+            ++ (lib.concatLists (
+              map (pattern: [
+                "--glob"
+                "!${pattern}"
+              ]) grepExcludes
+            ));
+        };
+        pickers.find_files.find_command =
+          [
+            fd
+            "--unrestricted"
+            "--ignore-case"
+            "--type"
+            "f"
+          ]
+          ++ (lib.concatLists (
+            map (pattern: [
+              "--exclude"
+              pattern
+            ]) excludes
+          ));
+      };
   };
 }
