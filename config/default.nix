@@ -151,7 +151,20 @@
       indent-blankline.enable = true;
       oil = {
         enable = true;
-        settings.view_options.show_hidden = true;
+        settings = {
+          view_options.show_hidden = true;
+          keymaps = {
+            "_" = "actions.open_cwd";
+            "`" = "actions.cd";
+            "<C-s>" = "actions.select_vsplit";
+            "<CR>" = "actions.select";
+            "~" = "actions.tcd";
+            "g?" = "actions.show_help";
+            "g\\" = "actions.toggle_trash";
+            "gs" = "actions.change_sort";
+            "gx" = "actions.open_external";
+          };
+        };
       };
       vim-surround.enable = true;
       mini = {
@@ -177,7 +190,6 @@
                 (mkTrigger "x" "\"")
                 (mkTrigger "i" "<C-r>")
                 (mkTrigger "c" "<C-r>")
-                (mkTrigger "n" "<C-w>")
                 (mkTrigger "n" "z")
                 (mkTrigger "x" "z")
               ];
