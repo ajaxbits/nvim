@@ -10,13 +10,14 @@
     ./keys.nix
     ./languages/astro
     ./languages/bash
-    ./languages/html
     ./languages/css
+    ./languages/html
     ./languages/python
+    ./languages/rust
     ./languages/scheme
     ./languages/terraform
-    ./languages/typescript
     ./languages/toml
+    ./languages/typescript
     ./lsp.nix
     ./nonels.nix
     ./refactoring.nix
