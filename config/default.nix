@@ -9,6 +9,7 @@
     ./git
     ./keys.nix
     ./languages/astro
+    ./languages/bash
     ./languages/html
     ./languages/css
     ./languages/python

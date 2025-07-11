@@ -5,7 +5,6 @@
       enable = true;
 
       servers = {
-        bashls.enable = true;
         eslint.enable = true;
         pyright.enable = true;
         yamlls = {
