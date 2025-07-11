@@ -28,11 +28,12 @@ in
     settings =
       let
         excludes = [
+          "__pycache__"
           ".direnv"
           ".git"
           ".jj"
-          "node_modules"
           ".venv"
+          "node_modules"
         ];
         grepExcludes = [
           "*.lock"
