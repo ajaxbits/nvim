@@ -71,7 +71,7 @@ in
         pickers.find_files.find_command =
           [
             fd
-            "--unrestricted"
+            "--hidden"
             "--ignore-case"
             "--type"
             "f"
