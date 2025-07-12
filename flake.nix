@@ -36,6 +36,13 @@
             default = nvim;
             nvim = nixvim'.makeNixvimWithModule nixvimModule;
           };
+          devShells.default = pkgs.mkShell {
+            buildInputs = with pkgs; [
+              attic-client
+              just
+              nix-output-monitor
+            ];
+          };
         };
     };
 }
