@@ -29,6 +29,7 @@ in
       let
         excludes = [
           "__pycache__"
+          ".cargo"
           ".direnv"
           ".git"
           ".jj"
