@@ -21,6 +21,7 @@
           ];
           javascriptreact = jsFormatters;
           json = [ "fixjson" ];
+          markdown = [ "prettierd" ];
           python = [
             "ruff_format"
             "ruff_organize_imports"
