@@ -1,5 +1,5 @@
 {
-  diagnostics = {
+  diagnostic.settings = {
     severity_sort = true;
 
     float = {
