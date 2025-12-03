@@ -9,7 +9,6 @@
         { paths = "~/.vscode/snippets"; }
       ];
     };
-    friendly-snippets.enable = true;
     copilot-lua = {
       enable = true;
       settings = {
