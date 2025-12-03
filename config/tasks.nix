@@ -2,7 +2,6 @@
   plugins = {
     overseer = {
       enable = true;
-
       lazyLoad.settings.cmd = [
         "OverseerOpen"
         "OverseerClose"

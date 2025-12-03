@@ -143,6 +143,7 @@
       };
       leap.enable = true;
       rainbow-delimiters.enable = true;
+      faster.enable = true;
       nvim-autopairs = {
         enable = true;
         settings.disable_filetype = [
