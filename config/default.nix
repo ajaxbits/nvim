@@ -20,6 +20,7 @@
     ./languages/toml
     ./languages/typescript
     ./lsp.nix
+    ./navigation.nix
     ./nonels.nix
     ./refactoring.nix
     ./tasks.nix
