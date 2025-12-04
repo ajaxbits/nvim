@@ -28,6 +28,7 @@
     ./testing.nix
     ./tree-sitter.nix
     ./undotree.nix
+    ./writing.nix
   ];
 
   config = {
