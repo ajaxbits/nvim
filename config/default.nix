@@ -159,6 +159,13 @@
           '';
         write_all_buffers = true;
       };
+      cutlass-nvim = {
+        enable = true;
+        settings.exclude = [
+          "nd"
+          "nD"
+        ];
+      };
       leap = {
         enable = true;
         luaConfig.post = # lua
