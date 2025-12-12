@@ -164,6 +164,8 @@
         settings.exclude = [
           "nd"
           "nD"
+          "vd"
+          "vD"
         ];
       };
       leap = {
