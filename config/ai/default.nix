@@ -1,3 +1,3 @@
 {
-  imports = [ ];
+  imports = [ ./avante.nix ];
 }
