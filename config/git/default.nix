@@ -1,7 +1,6 @@
 {
   imports = [
     ./links.nix
-    ./octo.nix
   ];
 
   config = {

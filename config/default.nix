@@ -22,7 +22,6 @@
     ./lsp.nix
     ./navigation.nix
     ./nonels.nix
-    ./refactoring.nix
     ./tasks.nix
     ./telescope.nix
     ./testing.nix
@@ -196,7 +195,9 @@
       };
       rainbow-delimiters.enable = true;
       faster.enable = true;
-      yanky.enable = true;
+      yanky = {
+        enable = true;
+      };
       nvim-autopairs = {
         enable = true;
         settings.disable_filetype = [

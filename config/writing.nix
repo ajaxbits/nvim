@@ -1,35 +1,31 @@
 {
-  plugins =
-    let
-      mkTextPlugin =
-        extraConfig:
-        {
-          enable = true;
-          lazyLoad.settings.ft = [
-            "asciidoc"
-            "gitcommit"
-            "help"
-            "latex"
-            "mail"
-            "markdown"
-            "rst"
-            "tex"
-            "text"
-            "typst"
-          ];
-        }
-        // extraConfig; # The '//' operator merges the sets
-    in
-    {
-      zen-mode = mkTextPlugin { };
-      wrapping = mkTextPlugin {
-        settings = {
-          create_keymaps = false;
-          notify_on_switch = false;
-          softener.markdown = true;
-        };
+  globals.markdown_fenced_languages = [ ];
+  plugins = {
+    zen-mode = {
+      enable = true;
+      lazyLoad.settings.cmd = "ZenMode";
+    };
+    wrapping = {
+      enable = true;
+      lazyLoad.settings.ft = [
+        "asciidoc"
+        "gitcommit"
+        "help"
+        "latex"
+        "mail"
+        "markdown"
+        "rst"
+        "tex"
+        "text"
+        "typst"
+      ];
+      settings = {
+        create_keymaps = false;
+        notify_on_switch = false;
+        softener.markdown = true;
       };
     };
+  };
   keymaps = [
     {
       options.desc = "Toggle writing mode";

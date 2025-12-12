@@ -5,8 +5,20 @@
     dap-python = {
       enable = true;
       testRunner = "pytest";
+      lazyLoad.settings.ft = [ "python" ];
     };
-    dap-ui.enable = true;
+    dap-ui = {
+      enable = true;
+      lazyLoad.settings = {
+        cmd = [
+          "DapContinue"
+          "DapToggleBreakpoint"
+          "DapStepOver"
+          "DapStepInto"
+          "DapStepOut"
+        ];
+      };
+    };
     dap-virtual-text.enable = true;
   };
 

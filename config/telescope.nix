@@ -39,44 +39,42 @@ in
       in
       {
         defaults = {
-          vimgrep_arguments =
-            [
-              rg
-              "--color=never"
-              "--column"
-              "--hidden"
-              "--line-number"
-              "--no-heading"
-              "--smart-case"
-              "--with-filename"
-            ]
-            ++ (lib.concatLists (
-              map (pattern: [
-                "--glob"
-                "!${pattern}/*"
-              ]) excludes
-            ))
-            ++ (lib.concatLists (
-              map (pattern: [
-                "--glob"
-                "!${pattern}"
-              ]) grepExcludes
-            ));
-        };
-        pickers.find_files.find_command =
-          [
-            fd
+          vimgrep_arguments = [
+            rg
+            "--color=never"
+            "--column"
             "--hidden"
-            "--ignore-case"
-            "--type"
-            "f"
+            "--line-number"
+            "--no-heading"
+            "--smart-case"
+            "--with-filename"
           ]
           ++ (lib.concatLists (
             map (pattern: [
-              "--exclude"
-              pattern
+              "--glob"
+              "!${pattern}/*"
             ]) excludes
+          ))
+          ++ (lib.concatLists (
+            map (pattern: [
+              "--glob"
+              "!${pattern}"
+            ]) grepExcludes
           ));
+        };
+        pickers.find_files.find_command = [
+          fd
+          "--hidden"
+          "--ignore-case"
+          "--type"
+          "f"
+        ]
+        ++ (lib.concatLists (
+          map (pattern: [
+            "--exclude"
+            pattern
+          ]) excludes
+        ));
       };
   };
 }
