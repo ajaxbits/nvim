@@ -28,20 +28,10 @@
     ./tree-sitter.nix
     ./undotree.nix
     ./writing.nix
+    ./performanceOptimizations.nix
   ];
 
   config = {
-    performance = {
-      byteCompileLua = {
-        enable = true;
-        configs = true;
-        initLua = true;
-        nvimRuntime = true;
-        plugins = true;
-      };
-    };
-    luaLoader.enable = true;
-
     enableMan = false;
     viAlias = true;
     vimAlias = true;
@@ -160,12 +150,21 @@
       };
       cutlass-nvim = {
         enable = true;
-        settings.exclude = [
-          "nd"
-          "nD"
-          "vd"
-          "vD"
-        ];
+        settings.exclude =
+          let
+            deleteMappings =
+              builtins.concatMap
+                (mode: [
+                  "${mode}d"
+                  "${mode}D"
+                ])
+                [
+                  "n"
+                  "v"
+                  "V"
+                ];
+          in
+          deleteMappings;
       };
       leap = {
         enable = true;
