@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   imports = [
     ./ai
@@ -275,12 +276,13 @@
           "?"
           ":"
         ];
-        renderer = # lua
-          ''
-            wilder.wildmenu_renderer({
-              highlighter = wilder.basic_highlighter(),
-            })
-          '';
+        options.renderer =
+          lib.nixvim.mkRaw # lua
+            ''
+              wilder.wildmenu_renderer({
+                highlighter = wilder.basic_highlighter(),
+              })
+            '';
       };
     };
   };
