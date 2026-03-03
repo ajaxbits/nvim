@@ -18,6 +18,13 @@
       };
       hints.enabled = false;
       windows.wrap = true;
+      input = {
+        provider = "snacks";
+        provider_opts = {
+          title = "Avante Input";
+          icon = " ";
+        };
+      };
     };
   };
   plugins.render-markdown = {
