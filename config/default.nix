@@ -18,6 +18,7 @@
     ./languages/scheme
     ./languages/sql
     ./languages/terraform
+    ./languages/todo-txt
     ./languages/toml
     ./languages/typescript
     ./lsp.nix
