@@ -38,10 +38,13 @@
         {
           __unkeyed-1 = "<leader>at";
           __unkeyed-2.__raw = opencode "toggle()";
-          mode = [
-            "n"
-            "t"
-          ];
+          mode = [ "n" ];
+          desc = "Toggle opencode";
+        }
+        {
+          __unkeyed-1 = "<C-.>";
+          __unkeyed-2.__raw = opencode "toggle()";
+          mode = [ "t" ];
           desc = "Toggle opencode";
         }
         {
