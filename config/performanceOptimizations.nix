@@ -24,6 +24,7 @@
           # Collisions
           "blink.cmp"
           "nvim-treesitter"
+          "snacks.nvim"
           "nvim-treesitter-textobjects"
           "oil.nvim"
           "vimplugin-treesitter-grammar-nix"
