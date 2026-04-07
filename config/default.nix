@@ -13,6 +13,7 @@
     ./languages/bash
     ./languages/css
     ./languages/html
+    ./languages/markdown
     ./languages/python
     ./languages/rust
     ./languages/scheme
@@ -24,13 +25,13 @@
     ./lsp.nix
     ./navigation.nix
     ./nonels.nix
+    ./performanceOptimizations.nix
     ./tasks.nix
     ./telescope.nix
     ./testing.nix
     ./tree-sitter.nix
     ./undotree.nix
     ./writing.nix
-    ./performanceOptimizations.nix
   ];
 
   config = {
