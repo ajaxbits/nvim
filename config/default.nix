@@ -23,7 +23,6 @@
     ./languages/toml
     ./languages/typescript
     ./lsp.nix
-    ./navigation.nix
     ./nonels.nix
     ./performanceOptimizations.nix
     ./tasks.nix

@@ -34,7 +34,6 @@
           packages = rec {
             default = nvim;
             nvim = nixvim'.makeNixvimWithModule nixvimModule;
-            zellij-autolock = pkgs.callPackage ./pkgs/zellij-autolock { };
           };
           devShells.default = pkgs.mkShell {
             buildInputs = with pkgs; [
