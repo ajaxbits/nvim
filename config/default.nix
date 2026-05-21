@@ -2,6 +2,7 @@
 {
   imports = [
     ./ai
+    ./bookmarks.nix
     ./buffers.nix
     ./completion.nix
     ./dap.nix
