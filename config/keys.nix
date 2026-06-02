@@ -73,5 +73,41 @@
       mode = [ "n" ];
       options.silent = true;
     }
+    {
+      key = "<C-h>";
+      action = "<C-w>h";
+      mode = [ "n" ];
+      options = {
+        desc = "Window left";
+        silent = true;
+      };
+    }
+    {
+      key = "<C-j>";
+      action = "<C-w>j";
+      mode = [ "n" ];
+      options = {
+        desc = "Window down";
+        silent = true;
+      };
+    }
+    {
+      key = "<C-k>";
+      action = "<C-w>k";
+      mode = [ "n" ];
+      options = {
+        desc = "Window up";
+        silent = true;
+      };
+    }
+    {
+      key = "<C-l>";
+      action = "<C-w>l";
+      mode = [ "n" ];
+      options = {
+        desc = "Window right";
+        silent = true;
+      };
+    }
   ];
 }
