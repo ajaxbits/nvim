@@ -17,6 +17,7 @@
     ./languages/markdown
     ./languages/python
     ./languages/rust
+    ./diffs.nix
     ./languages/scheme
     ./languages/sql
     ./languages/terraform
