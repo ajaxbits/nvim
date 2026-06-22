@@ -44,7 +44,7 @@
           "-"
         ];
         fixjson.command = lib.getExe pkgs.fixjson;
-        nixfmt.command = lib.getExe pkgs.nixfmt-rfc-style;
+        nixfmt.command = lib.getExe pkgs.nixfmt;
         gofumpt.command = lib.getExe pkgs.gofumpt;
         goimports.command = lib.getExe' pkgs.gotools "goimports";
       };
