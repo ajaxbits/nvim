@@ -46,6 +46,8 @@
       lazyLoad.enable = true;
     };
 
+    enablePrintInit = true;
+
     opts = rec {
       autoindent = true;
       encoding = "utf-8";
@@ -166,6 +168,7 @@
                   "n"
                   "v"
                   "V"
+                  "x"
                 ];
           in
           deleteMappings;
@@ -200,6 +203,13 @@
       faster.enable = true;
       yanky = {
         enable = true;
+        settings = {
+          highlight = {
+            on_put = true;
+            on_yank = true;
+            timer = 300;
+          };
+        };
       };
       nvim-autopairs = {
         enable = true;
