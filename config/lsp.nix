@@ -6,7 +6,6 @@
 
       servers = {
         eslint.enable = true;
-        pyright.enable = true;
         yamlls = {
           enable = true;
           settings.format = {

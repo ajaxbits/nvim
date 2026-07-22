@@ -11,7 +11,12 @@
       lsp = {
         enable = true;
         servers = {
-          pyright.enable = true;
+          ty = {
+            enable = true;
+            settings = {
+              diagnosticMode = "workspace";
+            };
+          };
           ruff = {
             enable = true;
             extraOptions.init_options.settings = {
