@@ -18,7 +18,7 @@
         jsonls.enable = true;
         nil_ls = {
           enable = true;
-          settings.formatting.command = [ (lib.getExe pkgs.nixfmt-rfc-style) ];
+          settings.formatting.command = [ (lib.getExe pkgs.nixfmt) ];
         };
         lua_ls = {
           enable = true;
