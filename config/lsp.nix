@@ -1,5 +1,8 @@
 { pkgs, lib, ... }:
 {
+  extraConfigLuaPre = /* lua */ ''
+    vim.lsp.log.set_level(vim.log.levels.ERROR)
+  '';
   plugins = {
     lsp = {
       enable = true;
