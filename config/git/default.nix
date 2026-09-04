@@ -7,6 +7,10 @@
     plugins = {
       gitsigns = {
         enable = true;
+        lazyLoad.settings.event = [
+          "BufReadPre"
+          "BufNewFile"
+        ];
         settings.diff_opts.internal = true;
       };
     };

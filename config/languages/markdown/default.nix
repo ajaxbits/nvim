@@ -11,9 +11,11 @@ in
         "markdown"
       ];
       settings = {
+        debounce = 200;
         heading = {
           sign = false;
         };
+        max_file_size = 1.0;
       };
     };
 

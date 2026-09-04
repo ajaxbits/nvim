@@ -83,6 +83,7 @@
       loaded_ruby_provider = 0; # Ruby
       loaded_perl_provider = 0; # Perl
       loaded_python_provider = 0; # Python 2
+      loaded_python3_provider = 0; # Python 3
     };
 
     keymaps = [
@@ -127,12 +128,42 @@
         pattern = [ "*" ];
         callback.__raw = ''
           function()
-              local spell_filetypes = {"markdown", "jj", "md"}
-              local ts_lang = vim.treesitter.language.get_lang(vim.bo.filetype)
-              if vim.tbl_contains(spell_filetypes, ts_lang) then
-                vim.opt_local.spell = true
-              end
+            local spell_filetypes = {
+              jj = true,
+              markdown = true,
+              md = true,
+            }
+
+            local ft = vim.bo.filetype
+            if not spell_filetypes[ft] then
+              return
             end
+
+            local max_spell_lines = 160
+            local max_spell_file_size = 64 * 1024
+            local line_count = vim.api.nvim_buf_line_count(0)
+            local path = vim.api.nvim_buf_get_name(0)
+            local stat = (path ~= "" and vim.uv.fs_stat(path)) or nil
+            local file_size = stat and stat.size or 0
+            local is_heavy = line_count > max_spell_lines or file_size > max_spell_file_size
+
+            vim.opt_local.spell = not is_heavy
+
+            if (ft == "markdown" or ft == "md") and is_heavy and vim.fn.exists(":RenderMarkdown") == 2 then
+              pcall(vim.cmd, "RenderMarkdown disable")
+            elseif (ft == "markdown" or ft == "md") and is_heavy then
+              local bufnr = vim.api.nvim_get_current_buf()
+              vim.schedule(function()
+                if not vim.api.nvim_buf_is_valid(bufnr) or vim.fn.exists(":RenderMarkdown") ~= 2 then
+                  return
+                end
+
+                vim.api.nvim_buf_call(bufnr, function()
+                  pcall(vim.cmd, "RenderMarkdown disable")
+                end)
+              end)
+            end
+          end
         '';
       }
     ];
@@ -213,6 +244,7 @@
       };
       nvim-autopairs = {
         enable = true;
+        lazyLoad.settings.event = "InsertEnter";
         settings.disable_filetype = [
           "scheme" # handled by parinfer
         ];
@@ -284,6 +316,7 @@
       };
       wilder = {
         enable = true;
+        lazyLoad.settings.event = "CmdlineEnter";
         settings.modes = [
           "/"
           "?"

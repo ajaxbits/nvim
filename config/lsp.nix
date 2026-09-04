@@ -3,6 +3,10 @@
   plugins = {
     lsp = {
       enable = true;
+      lazyLoad.settings.event = [
+        "BufReadPre"
+        "BufNewFile"
+      ];
 
       servers = {
         eslint.enable = true;
@@ -69,7 +73,10 @@
         };
       };
     };
-    fidget.enable = true;
+    fidget = {
+      enable = true;
+      lazyLoad.settings.event = "LspAttach";
+    };
     glance = {
       enable = true;
       lazyLoad.settings.cmd = "Glance";

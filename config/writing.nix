@@ -34,5 +34,19 @@
       options.silent = true;
       mode = [ "n" ];
     }
+    {
+      options.desc = "Toggle spell check";
+      action = "<cmd>setlocal spell!<cr>";
+      key = "<leader>ws";
+      options.silent = true;
+      mode = [ "n" ];
+    }
+    {
+      options.desc = "Toggle markdown render";
+      action = "<cmd>RenderMarkdown toggle<cr>";
+      key = "<leader>wm";
+      options.silent = true;
+      mode = [ "n" ];
+    }
   ];
 }

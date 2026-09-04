@@ -2,6 +2,10 @@
 {
   config.plugins.none-ls = {
     enable = true;
+    lazyLoad.settings.event = [
+      "BufReadPre"
+      "BufNewFile"
+    ];
     sources = {
       code_actions = {
         statix.enable = true;

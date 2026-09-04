@@ -19,10 +19,6 @@
     };
     blink-cmp = {
       enable = true;
-      # lazyLoad.settings.event = [
-      #   "InsertEnter"
-      #   "CmdLineEnter"
-      # ];
       settings = {
         signature.enabled = true;
         sources = {
@@ -142,6 +138,8 @@
         };
       };
     };
-    blink-cmp-copilot.enable = true;
+    blink-cmp-copilot = {
+      enable = true;
+    };
   };
 }

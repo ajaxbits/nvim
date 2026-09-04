@@ -3,26 +3,34 @@
     # TODO: it looks like the dap API changed. None of my commands work anymore. gotta use lua. Look into lazy loading while you're at it.
     dap = {
       enable = true;
-      luaConfig.pre =
-        # Lua
-        ''
-          require("dap").listeners.before.attach.dapui_config = function()
-            require("dapui").open()
-          end
-          require("dap").listeners.before.launch.dapui_config = function()
-            require("dapui").open()
-          end
-          require("dap").listeners.before.event_terminated.dapui_config = function()
-            require("dapui").close()
-          end
-          require("dap").listeners.before.event_exited.dapui_config = function()
-            require("dapui").close()
-          end
-        '';
+      lazyLoad.settings = {
+        cmd = [
+          "DapContinue"
+          "DapLoadLaunchJSON"
+          "DapStepInto"
+          "DapStepOut"
+          "DapStepOver"
+          "DapTerminate"
+          "DapToggleBreakpoint"
+        ];
+        keys = [
+          "<leader>db"
+          "<leader>dd"
+          "<leader>di"
+          "<leader>dl"
+          "<leader>do"
+          "<leader>ds"
+        ];
+      };
     };
     dap-python = {
       enable = true;
       testRunner = "pytest";
+      lazyLoad.settings.cmd = [
+        "DapPythonDebugSelection"
+        "DapPythonTestClass"
+        "DapPythonTestMethod"
+      ];
     };
     dap-ui = {
       enable = true;
@@ -43,6 +51,12 @@
             end
             require("dap").listeners.before.launch.dapui_config = function()
               require("dapui").open()
+            end
+            require("dap").listeners.before.event_terminated.dapui_config = function()
+              require("dapui").close()
+            end
+            require("dap").listeners.before.event_exited.dapui_config = function()
+              require("dapui").close()
             end
           end
         '';
